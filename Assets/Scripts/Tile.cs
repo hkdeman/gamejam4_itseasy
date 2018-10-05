@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tale
+public class Tile
 {
 
 	public Position position;
 
-	public Tale(Position pos)
+	public Tile(Position pos)
 	{
 		position = pos;
 	}
