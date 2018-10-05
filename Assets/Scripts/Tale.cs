@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map : MonoBehaviour {
-
-	Tale [,] map = new Tale [1, 10];
+public class Tale : MonoBehaviour
+{
+	private bool leftAccess;
+	private bool topAccess;
+	private Position position;
 	
 	// Use this for initialization
 	void Start () {
