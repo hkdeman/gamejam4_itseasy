@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tale : MonoBehaviour
+public class Tale
 {
-	private bool leftAccess;
-	private bool topAccess;
-	private Position position;
-	
-	// Use this for initialization
-	void Start () {
-		
+
+	public Position position;
+
+	public Tale(Position pos)
+	{
+		position = pos;
 	}
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
