@@ -24,20 +24,18 @@ public class Map : MonoBehaviour
 		createMap();
 //		right();
 		showMap();
-//		myCharacter = new Character(new Position(1, 1));
+        //		myCharacter = new Character(new Position(1, 1));
 
 
-//		Debug.Log(myCharacter.myPosition.ToString());
-//		right();
-//		Debug.Log(myCharacter.myPosition.ToString());
-//		right();
-//		right();
-//		down();
-//		left();
-//		left();
-//		Debug.Log(myCharacter.myPosition.ToString());
-
-
+        //		Debug.Log(myCharacter.myPosition.ToString());
+        //		right();
+        //		Debug.Log(myCharacter.myPosition.ToString());
+        //		right();
+        //		right();
+        //		down();
+        //		left();
+        //		left();
+        //		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	// Update is called once per frame
@@ -54,7 +52,7 @@ public class Map : MonoBehaviour
 			{
 				if (x != 0 && x != 4 && z != ROWS * SCALE - 2)
 					continue;
-                map[z / SCALE, x / SCALE] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
+                map[Mathf.RoundToInt(z / SCALE),Mathf.RoundToInt(x / SCALE)] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
 			}
 		}
 
@@ -86,6 +84,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("left");
 			myCharacter.GetComponent<Character>().moveLeft();
 		
 			return true;
@@ -114,6 +113,7 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
+		rotate("right");
 		myCharacter.GetComponent<Character>().moveRight();
 		
 		return true;
@@ -140,6 +140,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("down");
 			myCharacter.GetComponent<Character>().moveDown();
 		
 			return true;
@@ -165,6 +166,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("up");
 			myCharacter.GetComponent<Character>().moveUp();
 		
 			return true;
@@ -180,26 +182,26 @@ public class Map : MonoBehaviour
 
     private void rotate(string direction)
 	{
-	//	switch (direction)
-	//	{
-	//		case "left":
-	//			//rotate left
-	//			Debug.Log("Rotate left !");
-	//			break;
-	//		case "right":
-	//			//rotate right
-	//			Debug.Log("Rotate right !");
-	//			break;
-	//		case "up":
-	//			//rotate up
-	//			Debug.Log("Rotate up !");
-	//			break;
-	//		case "down":
-	//			//rotate down
-	//			Debug.Log("Rotate down !");
-	//			break;
+		switch (direction)
+		{
+			case "left":
+				//rotate left
+				myCharacter.transform.eulerAngles = new Vector3(0, 180, 0);
+				break;
+			case "right":
+				//rotate right
+				myCharacter.transform.eulerAngles = new Vector3(0, 0, 0);
+				break;
+			case "up":
+				//rotate up
+				myCharacter.transform.eulerAngles = new Vector3(0, -90, 0);
+				break;
+			case "down":
+				//rotate down
+				myCharacter.transform.eulerAngles = new Vector3(0, 90, 0);
+				break;
 			
-	//	}
+		}
 	}
 
 	public bool CheckWinCondition()
