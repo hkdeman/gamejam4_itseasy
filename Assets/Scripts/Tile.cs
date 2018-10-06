@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     public Position position;
     public bool status;
     public Texture2D WIN, LOSE;
+    public GameObject character;
 
     private Renderer m_Renderer;
 
@@ -35,6 +36,7 @@ public class Tile : MonoBehaviour
         UpdateTileColor();
         CallWinCodition();
         Character.SetIsJumping(false);
+        col.gameObject.GetComponent<Animator>().SetBool("IsJumping", false);
     }
 
     private void CallWinCodition()
