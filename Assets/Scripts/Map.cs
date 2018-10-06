@@ -84,6 +84,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("left");
 			myCharacter.GetComponent<Character>().moveLeft();
 		
 			return true;
@@ -112,6 +113,7 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
+		rotate("right");
 		myCharacter.GetComponent<Character>().moveRight();
 		
 		return true;
@@ -138,6 +140,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("down");
 			myCharacter.GetComponent<Character>().moveDown();
 		
 			return true;
@@ -163,6 +166,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("up");
 			myCharacter.GetComponent<Character>().moveUp();
 		
 			return true;
@@ -178,25 +182,25 @@ public class Map : MonoBehaviour
 
     private void rotate(string direction)
 	{
-	//	switch (direction)
-	//	{
-	//		case "left":
-	//			//rotate left
-	//			Debug.Log("Rotate left !");
-	//			break;
-	//		case "right":
-	//			//rotate right
-	//			Debug.Log("Rotate right !");
-	//			break;
-	//		case "up":
-	//			//rotate up
-	//			Debug.Log("Rotate up !");
-	//			break;
-	//		case "down":
-	//			//rotate down
-	//			Debug.Log("Rotate down !");
-	//			break;
+		switch (direction)
+		{
+			case "left":
+				//rotate left
+				myCharacter.transform.eulerAngles = new Vector3(0, 180, 0);
+				break;
+			case "right":
+				//rotate right
+				myCharacter.transform.eulerAngles = new Vector3(0, 0, 0);
+				break;
+			case "up":
+				//rotate up
+				myCharacter.transform.eulerAngles = new Vector3(0, -90, 0);
+				break;
+			case "down":
+				//rotate down
+				myCharacter.transform.eulerAngles = new Vector3(0, 90, 0);
+				break;
 			
-	//	}
+		}
 	}
 }
