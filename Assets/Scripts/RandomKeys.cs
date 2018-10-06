@@ -35,7 +35,7 @@ public class RandomKeys : MonoBehaviour
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-//        if (Input.GetKeyDown(alpha[0]))
+//        if (Input.GetKeyDown(alpha[0]) && Timer.GetTimerStatus())
 //        {
 //            myMap.up();
 //            myTimer.DownBy(amount);
@@ -56,19 +56,19 @@ public class RandomKeys : MonoBehaviour
 	    
 	    
 		//   /!\ DEBUGGGGGGGGGG !!
-	    if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W))
+	    if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W)) && Timer.GetTimerStatus())
         {
             myMap.up();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(KeyCode.S))
+        } else if ((Input.GetKeyDown(KeyCode.S)) && Timer.GetTimerStatus())
         {
             myMap.down();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A))
+        } else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)) && Timer.GetTimerStatus())
         {
             myMap.left();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(KeyCode.D))
+        } else if ((Input.GetKeyDown(KeyCode.D)) && Timer.GetTimerStatus())
         {
             myMap.right();
             myTimer.DownBy(amount);
