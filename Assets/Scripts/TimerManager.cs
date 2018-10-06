@@ -35,7 +35,7 @@ public class TimerManager : MonoBehaviour
 		UITime.text = time.ToString().Substring(0, 4);
         if (time <= 0)
         {
-	        Timer.status = false;
+	        TimerManager.status = false;
 	        Lose();
         }
     }
