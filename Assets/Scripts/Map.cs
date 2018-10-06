@@ -12,6 +12,7 @@ public class Map : MonoBehaviour
     public int SCALE = 2;
     public int ROWS = 3;
     public int COLS = 3;
+    public TimerManager timer;
 
 	private GameObject[,] map;
     public int[] levelOneMap;
@@ -210,6 +211,7 @@ public class Map : MonoBehaviour
             Transform t = spawnedClock.transform;
             Destroy(spawnedClock);
             Instantiate(particlesController, t.position, t.rotation);
+            timer.time += 15.0f;
         } 
     }
 
