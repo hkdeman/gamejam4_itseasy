@@ -207,6 +207,7 @@ public class Map : MonoBehaviour
     private void CheckIfClockThere() {
         if(clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z) {
             Destroy(spawnedClock);
+
         } 
     }
 
