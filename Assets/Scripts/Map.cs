@@ -84,6 +84,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("left");
 			myCharacter.GetComponent<Character>().MoveLeft();
 		
 			return true;
@@ -138,6 +139,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("down");
             myCharacter.GetComponent<Character>().MoveDown();
 		
 			return true;
@@ -163,6 +165,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
+			rotate("up");
 			myCharacter.GetComponent<Character>().MoveUp();
 		
 			return true;
@@ -178,25 +181,39 @@ public class Map : MonoBehaviour
 
     private void rotate(string direction)
 	{
-	//	switch (direction)
-	//	{
-	//		case "left":
-	//			//rotate left
-	//			Debug.Log("Rotate left !");
-	//			break;
-	//		case "right":
-	//			//rotate right
-	//			Debug.Log("Rotate right !");
-	//			break;
-	//		case "up":
-	//			//rotate up
-	//			Debug.Log("Rotate up !");
-	//			break;
-	//		case "down":
-	//			//rotate down
-	//			Debug.Log("Rotate down !");
-	//			break;
+		switch (direction)
+		{
+			case "left":
+				//rotate left
+				myCharacter.transform.eulerAngles = new Vector3(0, 180, 0);
+				break;
+			case "right":
+				//rotate right
+				myCharacter.transform.eulerAngles = new Vector3(0, 0, 0);
+				break;
+			case "up":
+				//rotate up
+				myCharacter.transform.eulerAngles = new Vector3(0, -90, 0);
+				break;
+			case "down":
+				//rotate down
+				myCharacter.transform.eulerAngles = new Vector3(0, 90, 0);
+				break;
 			
-	//	}
+		}
+	}
+
+	public bool CheckWinCondition()
+	{
+		for (int z = 0; z < ROWS * SCALE; z += SCALE)
+        		{
+        			for (int x = 0; x < COLS * SCALE; x += SCALE)
+			        {
+				        if (!map[z, x].GetComponent<Tile>().status)
+					        return false;
+			        }
+        		}
+
+		return true;
 	}
 }
