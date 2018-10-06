@@ -7,22 +7,42 @@ public class Scene : MonoBehaviour {
 
     float sceneTimer = 0;
     private GameObject soundManager;
-	// Use this for initialization
+    int scene = -1;
+    private bool shouldswitch = false;
+    
+    // Use this for initialization
 	void Start () {
         soundManager = GameObject.Find("MusicPlayer");
         StartCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        if (shouldswitch && soundFade() && scene != -1)
+        {
+            SceneManager.LoadScene(scene);
+        }
 	}
+
+    public bool soundFade()
+    {
+        SoundControl control = soundManager.GetComponent<SoundControl>();
+        if (!control.isFinished())
+        {
+            control.Decrescendo();
+
+            return false;
+        } else
+        {
+            return true;
+        }
+    }
 
 	public void loadScene(int scene)
 	{
-        // decresendo music before loading scene
-        StartCoroutine(soundManager.GetComponent<SoundControl>().Decrescendo());
-		SceneManager.LoadScene(scene);
+        StopCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
+        this.scene = scene;
+        shouldswitch = true;
 	}
 
 	public void quit()
