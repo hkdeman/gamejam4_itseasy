@@ -84,7 +84,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
-			myCharacter.GetComponent<Character>().moveLeft();
+			myCharacter.GetComponent<Character>().MoveLeft();
 		
 			return true;
 		}
@@ -112,7 +112,7 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
-		myCharacter.GetComponent<Character>().moveRight();
+		myCharacter.GetComponent<Character>().MoveRight();
 		
 		return true;
 	}
@@ -138,7 +138,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
-			myCharacter.GetComponent<Character>().moveDown();
+            myCharacter.GetComponent<Character>().MoveDown();
 		
 			return true;
 		}
@@ -163,7 +163,7 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
-			myCharacter.GetComponent<Character>().moveUp();
+			myCharacter.GetComponent<Character>().MoveUp();
 		
 			return true;
 		}
