@@ -63,10 +63,10 @@ public class Map : MonoBehaviour
 	{
 		try
 		{
-			
 			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x - 1] == null)
 			{
 				Debug.Log("Don't pass");
+				rotate("left");
 				return false;
 			}
 
@@ -78,6 +78,7 @@ public class Map : MonoBehaviour
 		catch (IndexOutOfRangeException e)
 		{
 			Debug.Log("Can't move");
+			rotate("left");
 			return false;
 		}
 	}
@@ -92,6 +93,7 @@ public class Map : MonoBehaviour
 			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x + 1] == null)
 			{
 				Debug.Log("Don't pass");
+				rotate("right");
 				return false;
 			}
 
@@ -104,6 +106,7 @@ public class Map : MonoBehaviour
 		catch (IndexOutOfRangeException e)
 		{
 			Debug.Log("Can't move");
+			rotate("right");
 			return false;
 		}
 	}
@@ -115,6 +118,7 @@ public class Map : MonoBehaviour
 			if (map[myCharacter.myPosition.y + 1, myCharacter.myPosition.x] == null)
 			{
 				Debug.Log("Don't pass");
+				rotate("down");
 				return false;
 			}
 
@@ -126,6 +130,7 @@ public class Map : MonoBehaviour
 		catch (IndexOutOfRangeException e)
 		{
 			Debug.Log("Can't move");
+			rotate("down");
 			return false;
 		}
 	}
@@ -137,6 +142,7 @@ public class Map : MonoBehaviour
 			if (map[myCharacter.myPosition.y - 1, myCharacter.myPosition.x] == null)
 			{
 				Debug.Log("Don't pass");
+				rotate("up");
 				return false;
 			}
 
@@ -148,7 +154,32 @@ public class Map : MonoBehaviour
 		catch (IndexOutOfRangeException e)
 		{
 			Debug.Log("Can't move");
+			rotate("up");
 			return false;
+		}
+	}
+
+	private void rotate(string direction)
+	{
+		switch (direction)
+		{
+			case "left":
+				//rotate left
+				Debug.Log("Rotate left !");
+				break;
+			case "right":
+				//rotate right
+				Debug.Log("Rotate right !");
+				break;
+			case "up":
+				//rotate up
+				Debug.Log("Rotate up !");
+				break;
+			case "down":
+				//rotate down
+				Debug.Log("Rotate down !");
+				break;
+			
 		}
 	}
 }
