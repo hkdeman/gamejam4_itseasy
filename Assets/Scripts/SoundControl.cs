@@ -6,11 +6,13 @@ public class SoundControl : MonoBehaviour
 {
 
     private new AudioSource audio;
-    public float volMod = 0.01f;
+    public float decMod; // value to control the decreasing volume
+    public float creMod; // value to control the increasing volume
     // Use this for initialization
     void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
+        audio.volume = 0.05f;
         audio.Play();
         audio.loop = true;
     }
@@ -21,18 +23,21 @@ public class SoundControl : MonoBehaviour
         
     }
 
-    void Crescendo()
+    public IEnumerator Crescendo()
     {
-        // this will crescendo the audio file after going to a new scene
+        while (audio.volume < 1)
+        {
+            audio.volume += audio.volume * creMod;
+            yield return null;
+        }
     }
 
-    void Decrescendo()
+    public IEnumerator Decrescendo()
     {
-        // this will decrescendo the audio file before going to the next scene
-        for (float x = audio.volume; x > 0; x--)
+        while (audio.volume > 0)
         {
-            audio.volume -= audio.volume * volMod;
-            Debug.Log(audio.volume);
+            audio.volume -= audio.volume * decMod;
+            yield return null;
         }
     }
 }
