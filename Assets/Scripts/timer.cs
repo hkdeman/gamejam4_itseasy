@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         DownBy(1);
-		UITime.text = time.ToString();
+		UITime.text = time.ToString().Substring(0, 4);
         if (time <= 0)
         {
             // do whatever needs to happen when the game is over
