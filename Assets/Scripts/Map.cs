@@ -228,11 +228,11 @@ public class Map : MonoBehaviour
 	{
 		for (int z = 0; z < ROWS * SCALE; z += SCALE)
         		{
-        			for (int x = 0; x < COLS * SCALE; x += SCALE)
+        			/*for (int x = 0; x < COLS * SCALE; x += SCALE)
 			        {
 				        if (!map[z, x].GetComponent<Tile>().status)
 					        return false;
-			        }
+			        }*/
         		}
 
 		return true;

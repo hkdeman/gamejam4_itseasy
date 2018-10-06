@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,7 +80,7 @@ public class TimerManager : MonoBehaviour
 
     public void Upby(float amount)
     {
-        time += Time.deltaTime * amount;
+        timeUp += Time.deltaTime * amount;
     }
 
 	public static bool GetTimerStatus()
