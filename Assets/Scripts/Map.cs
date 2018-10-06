@@ -24,20 +24,18 @@ public class Map : MonoBehaviour
 		createMap();
 //		right();
 		showMap();
-//		myCharacter = new Character(new Position(1, 1));
+        //		myCharacter = new Character(new Position(1, 1));
 
 
-//		Debug.Log(myCharacter.myPosition.ToString());
-//		right();
-//		Debug.Log(myCharacter.myPosition.ToString());
-//		right();
-//		right();
-//		down();
-//		left();
-//		left();
-//		Debug.Log(myCharacter.myPosition.ToString());
-
-
+        //		Debug.Log(myCharacter.myPosition.ToString());
+        //		right();
+        //		Debug.Log(myCharacter.myPosition.ToString());
+        //		right();
+        //		right();
+        //		down();
+        //		left();
+        //		left();
+        //		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	// Update is called once per frame
@@ -54,7 +52,7 @@ public class Map : MonoBehaviour
 			{
 				if (x != 0 && x != 4 && z != ROWS * SCALE - 2)
 					continue;
-                map[z / SCALE, x / SCALE] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
+                map[Mathf.RoundToInt(z / SCALE),Mathf.RoundToInt(x / SCALE)] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
 			}
 		}
 

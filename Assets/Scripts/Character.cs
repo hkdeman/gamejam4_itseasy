@@ -5,34 +5,57 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-	
+    public static float RANGE = 0.25f;
+    public static float RANGE_TO_SCALE_RATIO = 8;
+    public static float STEPS;
 
+    public static bool isJumping;
 
-//	public Character(Position myPosition)
-//	{
-//		this.myPosition = myPosition;
-//	}
-//
-	public void moveLeft()
+    void Start()
+    {
+        STEPS = RANGE / 10;
+        SetIsJumping(false);
+    }
+
+    public void moveLeft()
 	{
-		gameObject.transform.position -= new Vector3(2, 0, 0); 
+        if (!isJumping)
+            gameObject.transform.position -= new Vector3(2, 0, 0);
 	}
 
 	public void moveRight()
 	{
-		gameObject.transform.position += new Vector3(2, 0, 0);
+        if (!isJumping)
+            gameObject.transform.position += new Vector3(2, 0, 0);
 	}
 	
 	public void moveDown()
 	{
-		gameObject.transform.position -= new Vector3(0, 0, 2);
+        if (!isJumping)
+            gameObject.transform.position -= new Vector3(0, 0, 2);
 	}
 	
-	public void moveUp()
+    public void moveUp()
 	{
-		gameObject.transform.position += new Vector3(0, 0, 2);
-	}
-	
-	
-	
+        if (!isJumping)
+        {
+            isJumping = true;
+            for (float i = 0; i < RANGE; i += STEPS)
+            {
+                if (i < RANGE / 2)
+                {
+                    gameObject.transform.position += new Vector3(0, STEPS, STEPS * RANGE_TO_SCALE_RATIO);
+                }
+                else
+                {
+                    gameObject.transform.position += new Vector3(0, RANGE - STEPS, STEPS * RANGE_TO_SCALE_RATIO);
+                }
+            }
+        }
+    }
+
+    public static void SetIsJumping(bool iJ) {
+        isJumping = iJ;
+    }
+
 }
