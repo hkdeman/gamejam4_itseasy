@@ -16,7 +16,6 @@ public class Tile : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         status = !status;
-        print(status);
     }
 
     public bool GetStatus()
