@@ -8,7 +8,7 @@ public class Map : MonoBehaviour
 
 
     public GameObject myCharacter;
-    private int SCALE = 2;
+    public int SCALE = 2;
     public int ROWS = 3;
     public int COLS = 3;
 
