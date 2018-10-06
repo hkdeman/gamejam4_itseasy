@@ -10,7 +10,6 @@ public class Scene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         soundManager = GameObject.Find("MusicPlayer");
-        Debug.Log(soundManager == null);
         StartCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
     }
 	
