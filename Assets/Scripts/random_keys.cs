@@ -5,13 +5,21 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class random_keys : MonoBehaviour {
+public class random_keys : MonoBehaviour
+{
 
+    public GameObject map;
+    private Map myMap;
+    
     private List<string> alpha = new List<string>();
     public string viableButtons; // can add viable buttons in the editor itself
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+
+        myMap = map.GetComponent<Map>();
+        
         // add each character to the alpha array
         foreach (char c in viableButtons)
         {
@@ -26,16 +34,17 @@ public class random_keys : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(alpha[0]))
         {
-            // call up() here
+            myMap.up();
+
         } else if (Input.GetKeyDown(alpha[1]))
         {
-            // call down() here
+            myMap.down();
         } else if (Input.GetKeyDown(alpha[2]))
         {
-            // call left() here
+            myMap.left();
         } else if (Input.GetKeyDown(alpha[3]))
         {
-            // call right() here
+            myMap.right();
         }
     }
 }

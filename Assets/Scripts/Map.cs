@@ -14,16 +14,16 @@ public class Map : MonoBehaviour
 	void Start()
 	{
 		createMap();
-		showMap();
+//		showMap();
 		myCharacter = new Character(new Position(0, 0));
 //		Debug.Log(myCharacter.myPosition.ToString());
-		right();
+//		right();
 //		Debug.Log(myCharacter.myPosition.ToString());
-		right();
-		right();
-		down();
-		left();
-		left();
+//		right();
+//		right();
+//		down();
+//		left();
+//		left();
 //		Debug.Log(myCharacter.myPosition.ToString());
 
 
@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	public void createMap()
@@ -69,14 +69,14 @@ public class Map : MonoBehaviour
 				return false;
 			}
 
-			Debug.Log(("Pass"));
+			Debug.Log(("Move"));
 			myCharacter.moveLeft();
 			return true;
 		}
 
 		catch (IndexOutOfRangeException e)
 		{
-			Debug.Log("TEST");
+			Debug.Log("Can't move");
 			return false;
 		}
 	}
@@ -102,7 +102,7 @@ public class Map : MonoBehaviour
 
 		catch (IndexOutOfRangeException e)
 		{
-			Debug.Log("TEST");
+			Debug.Log("Can't move");
 			return false;
 		}
 	}
@@ -124,7 +124,7 @@ public class Map : MonoBehaviour
 
 		catch (IndexOutOfRangeException e)
 		{
-			Debug.Log("TEST");
+			Debug.Log("Can't move");
 			return false;
 		}
 	}
@@ -146,7 +146,7 @@ public class Map : MonoBehaviour
 
 		catch (IndexOutOfRangeException e)
 		{
-			Debug.Log("TEST");
+			Debug.Log("Can't move");
 			return false;
 		}
 	}
