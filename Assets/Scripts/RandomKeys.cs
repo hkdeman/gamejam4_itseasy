@@ -11,7 +11,7 @@ public class RandomKeys : MonoBehaviour
     public GameObject map;
     public GameObject timer;
     private Map myMap;
-    private Timer myTimer;
+    private TimerManager myTimer;
     
     private List<string> alpha = new List<string>();
     public string viableButtons; // can add viable buttons in the editor itself
@@ -21,7 +21,7 @@ public class RandomKeys : MonoBehaviour
     {
 
         myMap = map.GetComponent<Map>();
-        myTimer = timer.GetComponent<Timer>();
+        myTimer = timer.GetComponent<TimerManager>();
         
         // add each character to the alpha array
         foreach (char c in viableButtons)
@@ -56,19 +56,19 @@ public class RandomKeys : MonoBehaviour
 	    
 	    
 		//   /!\ DEBUGGGGGGGGGG !!
-	    if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W)) && Timer.GetTimerStatus())
+	    if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W)) && TimerManager.GetTimerStatus())
         {
             myMap.up();
             myTimer.DownBy(amount);
-        } else if ((Input.GetKeyDown(KeyCode.S)) && Timer.GetTimerStatus())
+        } else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus())
         {
             myMap.down();
             myTimer.DownBy(amount);
-        } else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)) && Timer.GetTimerStatus())
+        } else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)) && TimerManager.GetTimerStatus())
         {
             myMap.left();
             myTimer.DownBy(amount);
-        } else if ((Input.GetKeyDown(KeyCode.D)) && Timer.GetTimerStatus())
+        } else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())
         {
             myMap.right();
             myTimer.DownBy(amount);
