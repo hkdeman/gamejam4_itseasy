@@ -45,7 +45,6 @@ public class Timer : MonoBehaviour
         return timeUp;
     }
 
-    public void DownBy(float amount)
 	private void Lose()
 	{
 		Panel = Panel.GetComponent<Image>();
