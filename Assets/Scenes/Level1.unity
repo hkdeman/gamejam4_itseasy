@@ -414,6 +414,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1312306787953292, guid: c21903dd2c52e47c6aeb15cd7b628ee4,
     type: 2}
   m_PrefabInternal: {fileID: 939000016}
+--- !u!1 &753640909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753640911}
+  - component: {fileID: 753640910}
+  m_Layer: 0
+  m_Name: AnimationToastManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &753640910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 753640909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f278dcf2e52cf3945b318360e2ed74c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toast: {fileID: 1703636276185534, guid: a7f3d0f16584756478d0c7d2db9d5f76, type: 2}
+--- !u!4 &753640911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 753640909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1127.6409, y: 730.8324, z: -6.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &858182483
 GameObject:
   m_ObjectHideFlags: 0
