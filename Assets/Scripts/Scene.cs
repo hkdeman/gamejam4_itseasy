@@ -19,6 +19,7 @@ public class Scene : MonoBehaviour {
 
 	public void loadScene(int scene)
 	{
+        // decresendo music before loading scene
 		SceneManager.LoadScene(scene);
 	}
 
