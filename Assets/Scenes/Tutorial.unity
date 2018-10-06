@@ -4361,6 +4361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 698040876}
+  particlesController: {fileID: 1034404803858210, guid: 4ea287ae6aed4453fa8edc35e1946258,
+    type: 2}
   SCALE: 2
   ROWS: 4
   COLS: 4

@@ -8,6 +8,7 @@ public class Map : MonoBehaviour
 
 
     public GameObject myCharacter;
+    public GameObject particlesController;
     public int SCALE = 2;
     public int ROWS = 3;
     public int COLS = 3;
@@ -206,8 +207,9 @@ public class Map : MonoBehaviour
 
     private void CheckIfClockThere() {
         if(clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z) {
+            Transform t = spawnedClock.transform;
             Destroy(spawnedClock);
-
+            Instantiate(particlesController, t.position, t.rotation);
         } 
     }
 
