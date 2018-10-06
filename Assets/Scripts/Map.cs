@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -134,6 +134,7 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
+		rotate("right");
 		myCharacter.GetComponent<Character>().MoveRight();
 		
 		return true;
