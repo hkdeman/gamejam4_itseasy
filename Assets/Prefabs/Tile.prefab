@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  WIN: {fileID: 2800000, guid: 38b1e020264b9443587b8f7cde2f1006, type: 3}
+  WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
   LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}
   character: {fileID: 0}
