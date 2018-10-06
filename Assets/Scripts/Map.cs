@@ -6,16 +6,27 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
 
-	Tile[,] map = new Tile [10, 2];
 
-	private Character myCharacter;
+    public GameObject myCharacter;
+    private int SCALE = 2;
+    private int ROWS = 10;
+    private int COLS = 4;
+
+	private GameObject[,] map;
+	
+    public GameObject tile;
 
 	// Use this for initialization
 	void Start()
 	{
+		map = new GameObject [ROWS, COLS];
+		
 		createMap();
-//		showMap();
-		myCharacter = new Character(new Position(0, 0));
+//		right();
+		showMap();
+//		myCharacter = new Character(new Position(1, 1));
+
+
 //		Debug.Log(myCharacter.myPosition.ToString());
 //		right();
 //		Debug.Log(myCharacter.myPosition.ToString());
@@ -32,16 +43,18 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(myCharacter.myPosition.ToString());
+//		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	public void createMap()
 	{
-		for (int y = 0; y < 10; ++y)
+        for (int z = 0; z < ROWS * SCALE; z += SCALE)
 		{
-			for (int x = 0; x < 2; ++x)
+            for (int x = 0; x < COLS * SCALE; x += SCALE)
 			{
-				map[y, x] = new Tile(new Position(x, y));
+				if (x != 0 && x != 4 && z != ROWS * SCALE - 2)
+					continue;
+                map[z / SCALE, x / SCALE] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
 			}
 		}
 
@@ -50,28 +63,31 @@ public class Map : MonoBehaviour
 
 	public void showMap()
 	{
-		for (int i = 0; i < map.GetLength(1); ++i)
+		for (int z = 0; z < ROWS * SCALE; z += SCALE)
 		{
-			for (int j = 0; j < map.GetLength(0); ++j)
+			for (int x = 0; x < COLS * SCALE; x += SCALE)
 			{
-				Debug.Log(map[j, i].position.ToString());
+				Debug.Log(map[z / SCALE, x / SCALE].transform.position);
 			}
 		}
 	}
 
 	public bool left()
 	{
+		
 		try
-		{
-			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x - 1] == null)
+		{			
+			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x - SCALE)/SCALE] == null)
 			{
 				Debug.Log("Don't pass");
 				rotate("left");
 				return false;
 			}
 
-			Debug.Log(("Move"));
-			myCharacter.moveLeft();
+			Debug.Log(("Pass"));
+			myCharacter.GetComponent<Character>().moveLeft();
+		
 			return true;
 		}
 
@@ -85,37 +101,38 @@ public class Map : MonoBehaviour
 	
 	public bool right()
 	{
+		
 		try
-		{			
-//			Debug.Log("Character : " + myCharacter.myPosition.ToString());
-			
-			
-			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x + 1] == null)
-			{
-				Debug.Log("Don't pass");
-				rotate("right");
-				return false;
-			}
-
-			Debug.Log(("Pass"));
-			myCharacter.moveRight();
-			Debug.Log(myCharacter.myPosition.ToString());
-			return true;
-		}
-
-		catch (IndexOutOfRangeException e)
 		{
-			Debug.Log("Can't move");
+		Debug.Log(Mathf.RoundToInt(myCharacter.gameObject.transform.position.x) / SCALE);
+			
+		if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x + SCALE)/SCALE] == null)
+		{
+			Debug.Log("Don't pass");
 			rotate("right");
 			return false;
 		}
+
+		Debug.Log(("Pass"));
+		myCharacter.GetComponent<Character>().moveRight();
+		
+		return true;
 	}
-	
+
+	catch (IndexOutOfRangeException e)
+	{
+		Debug.Log("Can't move");
+		rotate("right");
+		return false;
+	}
+    }
+
 	public bool down()
 	{
+		
 		try
-		{
-			if (map[myCharacter.myPosition.y + 1, myCharacter.myPosition.x] == null)
+		{			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z - SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
 			{
 				Debug.Log("Don't pass");
 				rotate("down");
@@ -123,7 +140,8 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
-			myCharacter.moveDown();
+			myCharacter.GetComponent<Character>().moveDown();
+		
 			return true;
 		}
 
@@ -134,12 +152,12 @@ public class Map : MonoBehaviour
 			return false;
 		}
 	}
-	
+
 	public bool up()
 	{
 		try
-		{
-			if (map[myCharacter.myPosition.y - 1, myCharacter.myPosition.x] == null)
+		{			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z + SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
 			{
 				Debug.Log("Don't pass");
 				rotate("up");
@@ -147,7 +165,8 @@ public class Map : MonoBehaviour
 			}
 
 			Debug.Log(("Pass"));
-			myCharacter.moveTop();
+			myCharacter.GetComponent<Character>().moveUp();
+		
 			return true;
 		}
 
@@ -159,27 +178,27 @@ public class Map : MonoBehaviour
 		}
 	}
 
-	private void rotate(string direction)
+    private void rotate(string direction)
 	{
-		switch (direction)
-		{
-			case "left":
-				//rotate left
-				Debug.Log("Rotate left !");
-				break;
-			case "right":
-				//rotate right
-				Debug.Log("Rotate right !");
-				break;
-			case "up":
-				//rotate up
-				Debug.Log("Rotate up !");
-				break;
-			case "down":
-				//rotate down
-				Debug.Log("Rotate down !");
-				break;
+	//	switch (direction)
+	//	{
+	//		case "left":
+	//			//rotate left
+	//			Debug.Log("Rotate left !");
+	//			break;
+	//		case "right":
+	//			//rotate right
+	//			Debug.Log("Rotate right !");
+	//			break;
+	//		case "up":
+	//			//rotate up
+	//			Debug.Log("Rotate up !");
+	//			break;
+	//		case "down":
+	//			//rotate down
+	//			Debug.Log("Rotate down !");
+	//			break;
 			
-		}
+	//	}
 	}
 }

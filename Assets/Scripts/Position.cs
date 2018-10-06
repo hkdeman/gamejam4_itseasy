@@ -6,17 +6,17 @@ using UnityEngine;
 
 public class Position
 {
-    public int y;
+    public int z;
     public int x;
 
-    public Position(int x, int y)
+    public Position(int x, int z)
     {
-        this.y = y;
+        this.z = z;
         this.x = x;
     }
 
     public String ToString()
     {
-        return "x : " + this.x + " y : " + this.y;
+        return "x : " + this.x + " z : " + this.z;
     }
 }
