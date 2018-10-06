@@ -44,7 +44,7 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-//		Debug.Log(myCharacter.myPosition.ToString());
+		
 	}
 
 	public void createMap()
@@ -58,7 +58,7 @@ public class Map : MonoBehaviour
                     if (levelOneMap[x + ROWS * z] == 1)
                     {
                         Debug.Log(x + ROWS * z);
-                        map[z, x] = Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
+                        map[z, x] = (GameObject) Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
                     }
                 }
             }
@@ -203,6 +203,11 @@ public class Map : MonoBehaviour
 
     private void rotate(string direction)
 	{
+		if (CheckWinCondition())
+		{
+			Debug.Log("WIN");
+		}
+		
 		switch (direction)
 		{
 			case "left":
@@ -227,15 +232,15 @@ public class Map : MonoBehaviour
 
 	public bool CheckWinCondition()
 	{
-		for (int z = 0; z < ROWS * SCALE; z += SCALE)
-        		{
-        			/*for (int x = 0; x < COLS * SCALE; x += SCALE)
-			        {
-				        if (!map[z, x].GetComponent<Tile>().status)
-					        return false;
-			        }*/
-        		}
 
+		foreach (var t in GameObject.FindGameObjectsWithTag("Tile"))
+		{
+			if (!t.GetComponent<Tile>().status)
+			{
+				return false;
+			}
+		}
+	
 		return true;
 	}
 }
