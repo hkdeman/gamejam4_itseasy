@@ -6,16 +6,33 @@ public class Tile : MonoBehaviour
 {
 
     public Position position;
-    public bool status = false;
+    public bool status;
+    public Texture2D WIN, LOSE;
 
-    public Tile(Position pos)
+    private Renderer m_Renderer;
+
+    void Start()
     {
-        position = pos;
+        m_Renderer = GetComponent<Renderer>();
+        UpdateTileColor();
     }
+
+    void UpdateTileColor() {
+        if (status)
+        {
+            m_Renderer.material.SetTexture("_MainTex", WIN);
+        }
+        else
+        {
+            m_Renderer.material.SetTexture("_MainTex", LOSE);
+        }
+    }
+
 
     void OnCollisionEnter(Collision col)
     {
         status = !status;
+        UpdateTileColor();
     }
 
     public bool GetStatus()
