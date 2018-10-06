@@ -9,10 +9,12 @@ public class Map : MonoBehaviour
 
     public GameObject myCharacter;
     private int SCALE = 2;
-    private int ROWS = 10;
-    private int COLS = 4;
+    public int ROWS = 3;
+    public int COLS = 3;
 
 	private GameObject[,] map;
+    public int[] levelOneMap;
+
 	
     public GameObject tile;
 
@@ -20,6 +22,7 @@ public class Map : MonoBehaviour
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];
+        //levelOneMap  = new int[]{ 1, 0, 0, 1, 0, 0, 1, 1, 1};
 		
 		createMap();
 //		right();
@@ -46,7 +49,25 @@ public class Map : MonoBehaviour
 
 	public void createMap()
 	{
-        for (int z = 0; z < ROWS * SCALE; z += SCALE)
+        try
+        {
+            for (int z = 0; z < ROWS; z += 1)
+            {
+                for (int x = 0; x < COLS; x += 1)
+                {
+                    if (levelOneMap[x + ROWS * z] == 1)
+                    {
+                        Debug.Log(x + ROWS * z);
+                        map[z, x] = Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+        /*for (int z = 0; z < ROWS * SCALE; z += SCALE)
 		{
             for (int x = 0; x < COLS * SCALE; x += SCALE)
 			{
@@ -54,7 +75,7 @@ public class Map : MonoBehaviour
 					continue;
                 map[Mathf.RoundToInt(z / SCALE),Mathf.RoundToInt(x / SCALE)] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
 			}
-		}
+		}*/
 
 		 
 	}
@@ -65,7 +86,7 @@ public class Map : MonoBehaviour
 		{
 			for (int x = 0; x < COLS * SCALE; x += SCALE)
 			{
-				Debug.Log(map[z / SCALE, x / SCALE].transform.position);
+				//Debug.Log(map[z / SCALE, x / SCALE].transform.position);
 			}
 		}
 	}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
 
     public float time = 60.0f; // in seconds
+    public float timeUp = 0.0f;
 
     public Text UITime;
     
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         DownBy(1);
+        Upby(1);
 		UITime.text = time.ToString().Substring(0, 4);
         if (time <= 0)
         {
@@ -25,10 +27,20 @@ public class Timer : MonoBehaviour {
         }
     }
 
+    public float getTime()
+    {
+        return timeUp;
+    }
+
     public void DownBy(float amount)
     {
 	    Debug.Log("Down by " + amount);
         time -= Time.deltaTime * amount;
+    }
+
+    public void Upby(float amount)
+    {
+        time += Time.deltaTime * amount;
     }
     
     
