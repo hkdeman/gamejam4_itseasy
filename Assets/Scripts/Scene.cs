@@ -15,9 +15,9 @@ public class Scene : MonoBehaviour {
 		
 	}
 
-	public void play()
+	public void loadScene(int scene)
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(scene);
 	}
 
 	public void quit()

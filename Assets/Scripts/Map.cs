@@ -113,7 +113,6 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
-		myCharacter.GetComponent<Character>().moveRight();
 		myCharacter.GetComponent<Character>().MoveRight();
 		
 		return true;
