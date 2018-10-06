@@ -6,21 +6,27 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
 
-	Tile[,] map = new Tile [10, 2];
 
-    private Character myCharacter;
+    public GameObject myCharacter;
     private int SCALE = 2;
     private int ROWS = 10;
-    private int COLS = 2;
+    private int COLS = 4;
 
+	private GameObject[,] map;
+	
     public GameObject tile;
 
 	// Use this for initialization
 	void Start()
 	{
+		map = new GameObject [ROWS, COLS];
+		
 		createMap();
-//		showMap();
-		myCharacter = new Character(new Position(0, 0));
+//		right();
+		showMap();
+//		myCharacter = new Character(new Position(1, 1));
+
+
 //		Debug.Log(myCharacter.myPosition.ToString());
 //		right();
 //		Debug.Log(myCharacter.myPosition.ToString());
@@ -37,7 +43,7 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(myCharacter.myPosition.ToString());
+//		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	public void createMap()
@@ -46,8 +52,9 @@ public class Map : MonoBehaviour
 		{
             for (int x = 0; x < COLS * SCALE; x += SCALE)
 			{
-                //map[y, x] = new Tile(new Position(x, y));
-                Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
+				if (x != 0 && x != 4 && z != ROWS * SCALE - 2)
+					continue;
+                map[z / SCALE, x / SCALE] = Instantiate(tile, new Vector3(x, 0, z), tile.transform.rotation);
 			}
 		}
 
@@ -56,121 +63,120 @@ public class Map : MonoBehaviour
 
 	public void showMap()
 	{
-//		for (int i = 0; i < map.GetLength(1); ++i)
-//		{
-//			for (int j = 0; j < map.GetLength(0); ++j)
-//			{
-//				Debug.Log(map[j, i].position.ToString());
-//			}
-//		}
+		for (int z = 0; z < ROWS * SCALE; z += SCALE)
+		{
+			for (int x = 0; x < COLS * SCALE; x += SCALE)
+			{
+				Debug.Log(map[z / SCALE, x / SCALE].transform.position);
+			}
+		}
 	}
 
 	public bool left()
 	{
-        //		try
-        //		{
-        //			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x - 1] == null)
-        //			{
-        //				Debug.Log("Don't pass");
-        //				rotate("left");
-        //				return false;
-        //			}
+		
+		try
+		{			
+			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x - SCALE)/SCALE] == null)
+			{
+				Debug.Log("Don't pass");
+				rotate("left");
+				return false;
+			}
 
-        //			Debug.Log(("Move"));
-        //			myCharacter.moveLeft();
-        //			return true;
-        //		}
+			Debug.Log(("Pass"));
+			myCharacter.GetComponent<Character>().moveLeft();
+		
+			return true;
+		}
 
-        //		catch (IndexOutOfRangeException e)
-        //		{
-        //			Debug.Log("Can't move");
-        //			rotate("left");
-        //			return false;
-        //		}
-        return false;
+		catch (IndexOutOfRangeException e)
+		{
+			Debug.Log("Can't move");
+			rotate("left");
+			return false;
+		}
 	}
 	
 	public bool right()
 	{
-        //		try
-        //		{			
-        ////			Debug.Log("Character : " + myCharacter.myPosition.ToString());
+		
+		try
+		{
+		Debug.Log(Mathf.RoundToInt(myCharacter.gameObject.transform.position.x) / SCALE);
+			
+		if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x + SCALE)/SCALE] == null)
+		{
+			Debug.Log("Don't pass");
+			rotate("right");
+			return false;
+		}
 
+		Debug.Log(("Pass"));
+		myCharacter.GetComponent<Character>().moveRight();
+		
+		return true;
+	}
 
-        //		if (map[myCharacter.myPosition.y, myCharacter.myPosition.x + 1] == null)
-        //		{
-        //			Debug.Log("Don't pass");
-        //			rotate("right");
-        //			return false;
-        //		}
-
-        //		Debug.Log(("Pass"));
-        //		myCharacter.moveRight();
-        //		Debug.Log(myCharacter.myPosition.ToString());
-        //		return true;
-        //	}
-
-        //	catch (IndexOutOfRangeException e)
-        //	{
-        //		Debug.Log("Can't move");
-        //		rotate("right");
-        //		return false;
-        //	}
-        return false;
-
-    }
-
-    public bool down()
+	catch (IndexOutOfRangeException e)
 	{
-        //	try
-        //	{
-        //		if (map[myCharacter.myPosition.y + 1, myCharacter.myPosition.x] == null)
-        //		{
-        //			Debug.Log("Don't pass");
-        //			rotate("down");
-        //			return false;
-        //		}
-
-        //		Debug.Log(("Pass"));
-        //		myCharacter.moveDown();
-        //		return true;
-        //	}
-
-        //	catch (IndexOutOfRangeException e)
-        //	{
-        //		Debug.Log("Can't move");
-        //		rotate("down");
-        //		return false;
-        //	}
-        return false;
-
+		Debug.Log("Can't move");
+		rotate("right");
+		return false;
+	}
     }
 
-    public bool up()
+	public bool down()
 	{
-        //	try
-        //	{
-        //		if (map[myCharacter.myPosition.y - 1, myCharacter.myPosition.x] == null)
-        //		{
-        //			Debug.Log("Don't pass");
-        //			rotate("up");
-        //			return false;
-        //		}
+		
+		try
+		{			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z - SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
+			{
+				Debug.Log("Don't pass");
+				rotate("down");
+				return false;
+			}
 
-        //		Debug.Log(("Pass"));
-        //		myCharacter.moveTop();
-        //		return true;
-        //	}
+			Debug.Log(("Pass"));
+			myCharacter.GetComponent<Character>().moveDown();
+		
+			return true;
+		}
 
-        //	catch (IndexOutOfRangeException e)
-        //	{
-        //		Debug.Log("Can't move");
-        //		rotate("up");
-        //		return false;
-        //	}
-        return false;
+		catch (IndexOutOfRangeException e)
+		{
+			Debug.Log("Can't move");
+			rotate("down");
+			return false;
+		}
+	}
 
-    }
+	public bool up()
+	{
+		try
+		{			
+			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z + SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
+			{
+				Debug.Log("Don't pass");
+				rotate("up");
+				return false;
+			}
+
+			Debug.Log(("Pass"));
+			myCharacter.GetComponent<Character>().moveUp();
+		
+			return true;
+		}
+
+		catch (IndexOutOfRangeException e)
+		{
+			Debug.Log("Can't move");
+			rotate("up");
+			return false;
+		}
+	}
 
     private void rotate(string direction)
 	{

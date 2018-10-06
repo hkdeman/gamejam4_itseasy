@@ -35,19 +35,40 @@ public class RandomKeys : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(alpha[0]))
+//        if (Input.GetKeyDown(alpha[0]))
+//        {
+//            myMap.up();
+//            myTimer.DownBy(amount);
+//        } else if (Input.GetKeyDown(alpha[1]))
+//        {
+//            myMap.down();
+//            myTimer.DownBy(amount);
+//        } else if (Input.GetKeyDown(alpha[2]))
+//        {
+//            myMap.left();
+//            myTimer.DownBy(amount);
+//        } else if (Input.GetKeyDown(alpha[3]))
+//        {
+//            myMap.right();
+//            myTimer.DownBy(amount);
+//        }
+	    
+	    
+	    
+		//   /!\ DEBUGGGGGGGGGG !!
+	    if (Input.GetKeyDown(KeyCode.Z))
         {
             myMap.up();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(alpha[1]))
+        } else if (Input.GetKeyDown(KeyCode.S))
         {
             myMap.down();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(alpha[2]))
+        } else if (Input.GetKeyDown(KeyCode.Q))
         {
             myMap.left();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(alpha[3]))
+        } else if (Input.GetKeyDown(KeyCode.D))
         {
             myMap.right();
             myTimer.DownBy(amount);

@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour {
 
     public void DownBy(float amount)
     {
+	    Debug.Log("Down by " + amount);
         time -= Time.deltaTime * amount;
     }
     

@@ -3,32 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character
+public class Character : MonoBehaviour
 {
-	public Position myPosition;
+	
 
 
-	public Character(Position myPosition)
-	{
-		this.myPosition = myPosition;
-	}
-
+//	public Character(Position myPosition)
+//	{
+//		this.myPosition = myPosition;
+//	}
+//
 	public void moveLeft()
 	{
-		myPosition.x -= 1;
+		gameObject.transform.position -= new Vector3(2, 0, 0); 
 	}
-	
+
 	public void moveRight()
 	{
-		myPosition.x += 1;	}
-	
-	public void moveTop()
-	{
-		myPosition.y -= 1;	}
+		gameObject.transform.position += new Vector3(2, 0, 0);
+	}
 	
 	public void moveDown()
 	{
-		myPosition.y += 1;	}
+		gameObject.transform.position -= new Vector3(0, 0, 2);
+	}
+	
+	public void moveUp()
+	{
+		gameObject.transform.position += new Vector3(0, 0, 2);
+	}
 	
 	
 	
