@@ -62,7 +62,7 @@ public class Tile : MonoBehaviour
     public IEnumerator Lefting()
     {
         GameObject character = GameObject.Find("MainCharacter");
-        while (character.transform.position.y < 3f)
+        while (character.transform.position.y < 2.5f)
         {
             character.transform.position += new Vector3(0, 0.1f, 0);
             yield return null;
