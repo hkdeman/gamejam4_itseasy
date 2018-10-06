@@ -17,28 +17,22 @@ public class Map : MonoBehaviour
 
 	
     public GameObject tile;
+    public GameObject clock;
+
+    Position clockPosition;
+    Position currentPosition;
+
+    GameObject spawnedClock;
+
 
 	// Use this for initialization
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];
-        //levelOneMap  = new int[]{ 1, 0, 0, 1, 0, 0, 1, 1, 1};
-		
-		createMap();
-//		right();
+        clockPosition = new Position(0,3);
+        currentPosition = new Position(0, 0);
+        createMap();
 		showMap();
-        //		myCharacter = new Character(new Position(1, 1));
-
-
-        //		Debug.Log(myCharacter.myPosition.ToString());
-        //		right();
-        //		Debug.Log(myCharacter.myPosition.ToString());
-        //		right();
-        //		right();
-        //		down();
-        //		left();
-        //		left();
-        //		Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	// Update is called once per frame
@@ -55,10 +49,16 @@ public class Map : MonoBehaviour
             {
                 for (int x = 0; x < COLS; x += 1)
                 {
-                    if (levelOneMap[x + ROWS * z] == 1)
+                    int pos = x + ROWS * z;
+                    if (levelOneMap[pos] == 1)
                     {
-                        Debug.Log(x + ROWS * z);
                         map[z, x] = (GameObject) Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
+                    }
+
+                    if (clockPosition.x == x && clockPosition.z == z)
+                    {
+                        print(clockPosition);
+                        spawnedClock = (GameObject) Instantiate(clock, new Vector3(x * SCALE, 2, z * SCALE), clock.transform.rotation);
                     }
                 }
             }
@@ -95,8 +95,7 @@ public class Map : MonoBehaviour
 	{
 		
 		try
-		{			
-			
+		{
 			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x - SCALE)/SCALE] == null)
 			{
 				Debug.Log("Don't pass");
@@ -106,8 +105,9 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("left");
-			myCharacter.GetComponent<Character>().MoveLeft();
-		
+            currentPosition.x -= 1;
+            CheckIfClockThere();
+            myCharacter.GetComponent<Character>().MoveLeft();
 			return true;
 		}
 
@@ -135,8 +135,9 @@ public class Map : MonoBehaviour
 
 		Debug.Log(("Pass"));
 		rotate("right");
-		myCharacter.GetComponent<Character>().MoveRight();
-		
+        currentPosition.x += 1;
+        CheckIfClockThere();
+        myCharacter.GetComponent<Character>().MoveRight();
 		return true;
 	}
 
@@ -162,8 +163,9 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("down");
+            currentPosition.z -= 1;
+            CheckIfClockThere();
             myCharacter.GetComponent<Character>().MoveDown();
-		
 			return true;
 		}
 
@@ -188,8 +190,9 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("up");
-			myCharacter.GetComponent<Character>().MoveUp();
-		
+            currentPosition.z += 1;
+            CheckIfClockThere();
+            myCharacter.GetComponent<Character>().MoveUp(); 
 			return true;
 		}
 
@@ -200,6 +203,12 @@ public class Map : MonoBehaviour
 			return false;
 		}
 	}
+
+    private void CheckIfClockThere() {
+        if(clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z) {
+            Destroy(spawnedClock);
+        } 
+    }
 
     private void rotate(string direction)
 	{
