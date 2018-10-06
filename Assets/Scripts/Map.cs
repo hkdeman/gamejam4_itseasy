@@ -32,7 +32,7 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Debug.Log(myCharacter.myPosition.ToString());
+		//Debug.Log(myCharacter.myPosition.ToString());
 	}
 
 	public void createMap()
