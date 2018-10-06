@@ -106,7 +106,7 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("left");
-			myCharacter.GetComponent<Character>().moveLeft();
+			myCharacter.GetComponent<Character>().MoveLeft();
 		
 			return true;
 		}
@@ -134,8 +134,7 @@ public class Map : MonoBehaviour
 		}
 
 		Debug.Log(("Pass"));
-		rotate("right");
-		myCharacter.GetComponent<Character>().moveRight();
+		myCharacter.GetComponent<Character>().MoveRight();
 		
 		return true;
 	}
@@ -162,7 +161,7 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("down");
-			myCharacter.GetComponent<Character>().moveDown();
+            myCharacter.GetComponent<Character>().MoveDown();
 		
 			return true;
 		}
@@ -188,7 +187,7 @@ public class Map : MonoBehaviour
 
 			Debug.Log(("Pass"));
 			rotate("up");
-			myCharacter.GetComponent<Character>().moveUp();
+			myCharacter.GetComponent<Character>().MoveUp();
 		
 			return true;
 		}
@@ -223,5 +222,19 @@ public class Map : MonoBehaviour
 				break;
 			
 		}
+	}
+
+	public bool CheckWinCondition()
+	{
+		for (int z = 0; z < ROWS * SCALE; z += SCALE)
+        		{
+        			for (int x = 0; x < COLS * SCALE; x += SCALE)
+			        {
+				        if (!map[z, x].GetComponent<Tile>().status)
+					        return false;
+			        }
+        		}
+
+		return true;
 	}
 }
