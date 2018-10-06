@@ -33,7 +33,16 @@ public class Tile : MonoBehaviour
     {
         status = !status;
         UpdateTileColor();
+        CallWinCodition();
         Character.SetIsJumping(false);
+    }
+
+    private void CallWinCodition()
+    {
+        if (GameObject.Find("Map").GetComponent<Map>().CheckWinCondition())
+        {
+            Debug.Log("WIN !");
+        }
     }
 
     public bool GetStatus()
