@@ -5,11 +5,13 @@ using UnityEngine;
 public class Toast : MonoBehaviour
 {
 
-	public GameObject toast;
+
+	private Animator am;
 	
 	// Use this for initialization
-	void Start () {
-		createToast();
+	void Start ()
+	{
+		am = gameObject.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -19,21 +21,8 @@ public class Toast : MonoBehaviour
 
 	public void createToast()
 	{
-		Debug.Log("aaaa");
-		var myToast = Instantiate(toast, new Vector3(395.73f, 180f, 0f), toast.transform.rotation);
-		myToast.transform.parent = GameObject.Find("Canvas").transform;
-//		GameObject GOToast = GameObject.Find("Toast");
-		toast.transform.position = new Vector3(395.73f, 180f, 0f);
-//		StartCoroutine(animation());
+		am.SetTrigger("created");
 	}
 	
-	public IEnumerator animation()
-	{
-		GameObject toast = GameObject.Find("Toast");
-		while (toast.transform.position.y > 175f)
-		{
-			toast.transform.position -= new Vector3(0, 0.1f, 0);
-			yield return null;
-		}
-	}
+	
 }

@@ -60,18 +60,22 @@ public class RandomKeys : MonoBehaviour
         {
             myMap.up();
             myTimer.DownBy(amount);
+            GameObject.Find("Toast").GetComponent<Toast>().createToast();
         } else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus())
         {
             myMap.down();
             myTimer.DownBy(amount);
+            GameObject.Find("Toast").GetComponent<Toast>().createToast();
         } else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)) && TimerManager.GetTimerStatus())
         {
             myMap.left();
             myTimer.DownBy(amount);
+            GameObject.Find("Toast").GetComponent<Toast>().createToast();
         } else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())
         {
             myMap.right();
             myTimer.DownBy(amount);
+            GameObject.Find("Toast").GetComponent<Toast>().createToast();
         }
     }
 }
