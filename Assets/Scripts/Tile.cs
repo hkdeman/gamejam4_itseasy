@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tile
+public class Tile : MonoBehaviour
 {
 
-	public Position position;
+    public Position position;
+    public bool status = false;
 
-	public Tile(Position pos)
-	{
-		position = pos;
-	}
+    public Tile(Position pos)
+    {
+        position = pos;
+    }
 
-	
+    void OnCollisionEnter(Collision col)
+    {
+        status = !status;
+    }
+
+    public bool GetStatus()
+    {
+        return this.status;
+    }
 }
