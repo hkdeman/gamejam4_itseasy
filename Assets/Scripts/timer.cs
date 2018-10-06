@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timer : MonoBehaviour {
+public class Timer : MonoBehaviour {
 
     public float time = 60.0f; // in seconds
 
@@ -21,7 +21,7 @@ public class timer : MonoBehaviour {
         }
     }
 
-    void DownBy(float amount)
+    public void DownBy(float amount)
     {
         time -= Time.deltaTime * amount;
     }

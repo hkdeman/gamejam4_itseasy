@@ -63,6 +63,7 @@ public class Map : MonoBehaviour
 	{
 		try
 		{
+			
 			if (map[myCharacter.myPosition.y, myCharacter.myPosition.x - 1] == null)
 			{
 				Debug.Log("Don't pass");
