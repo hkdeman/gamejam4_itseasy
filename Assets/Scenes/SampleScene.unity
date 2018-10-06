@@ -612,6 +612,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 698040876}
+  ROWS: 3
+  COLS: 3
+  levelOneMap: 010000000000000000000000010000000000000000000000010000000100000001000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
 --- !u!4 &1177609819
 Transform:
@@ -735,6 +738,7 @@ MonoBehaviour:
   textAgain: {fileID: 1306531258}
   textQuit: {fileID: 1971331441}
   time: 60
+  timeUp: 0
   UITime: {fileID: 133708213}
 --- !u!4 &1506810541
 Transform:

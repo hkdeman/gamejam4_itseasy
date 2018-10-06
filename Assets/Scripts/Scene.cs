@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Scene : MonoBehaviour {
 
+    float sceneTimer = 0;
+
 	// Use this for initialization
 	void Start () {
 		

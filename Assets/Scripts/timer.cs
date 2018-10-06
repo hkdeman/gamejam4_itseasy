@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
 	public Text textGameOver;
 	public Text textAgain;
 	public Text textQuit;
+    public float timeUp = 0.0f;
 
 	private bool hasLose = false;
 
@@ -30,6 +31,7 @@ public class Timer : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
         DownBy(1);
+        Upby(1);
 		UITime.text = time.ToString().Substring(0, 4);
         if (time <= 0)
         {
@@ -38,6 +40,12 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public float getTime()
+    {
+        return timeUp;
+    }
+
+    public void DownBy(float amount)
 	private void Lose()
 	{
 		Panel = Panel.GetComponent<Image>();
@@ -69,6 +77,11 @@ public class Timer : MonoBehaviour
     {
 	    Debug.Log("Down by " + amount);
         time -= Time.deltaTime * amount;
+    }
+
+    public void Upby(float amount)
+    {
+        time += Time.deltaTime * amount;
     }
 
 	public static bool GetTimerStatus()
