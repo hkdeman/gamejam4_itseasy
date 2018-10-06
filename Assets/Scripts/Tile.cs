@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tile : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Tile : MonoBehaviour
     public GameObject character;
 
     private Renderer m_Renderer;
+    
+    private float yVelocity = 0.0F;
+
 
     void Start()
     {
@@ -41,14 +45,28 @@ public class Tile : MonoBehaviour
 
     private void CallWinCodition()
     {
+        
         if (GameObject.Find("Map").GetComponent<Map>().CheckWinCondition())
         {
-            Debug.Log("WIN !");
+            Debug.Log("WINNN !");
+            StartCoroutine("Lefting");
+            
         }
     }
 
     public bool GetStatus()
     {
         return this.status;
+    }
+    
+    public IEnumerator Lefting()
+    {
+        GameObject character = GameObject.Find("MainCharacter");
+        while (character.transform.position.y < 3f)
+        {
+            character.transform.position += new Vector3(0, 0.1f, 0);
+            yield return null;
+        }
+        SceneManager.LoadScene(0);
     }
 }
