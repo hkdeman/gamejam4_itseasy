@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     public static bool isJumping;
 
     Animator animator;
+    
+    private float yVelocity = 0.0F;
 
     void Start()
     {
@@ -101,6 +103,10 @@ public class Character : MonoBehaviour
                     gameObject.transform.position += new Vector3(0, RANGE - STEPS, STEPS * RANGE_TO_SCALE_RATIO);
                 }
             }
+    
+           
+//            float newPosition = Mathf.SmoothDamp(gameObject.transform.position.y, gameObject.transform.position.y + 2, ref yVelocity, 0.3f);
+//            gameObject.transform.position = new Vector3(transform.position.x, newPosition, transform.position.z);
         }
     }
 
