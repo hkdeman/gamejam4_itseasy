@@ -1,9 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class TimerManager : MonoBehaviour
 {
 
 	public Image Panel;
@@ -35,7 +35,7 @@ public class Timer : MonoBehaviour
 		UITime.text = time.ToString().Substring(0, 4);
         if (time <= 0)
         {
-	        Timer.status = false;
+	        TimerManager.status = false;
 	        Lose();
         }
     }
