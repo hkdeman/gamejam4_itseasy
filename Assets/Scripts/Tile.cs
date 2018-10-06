@@ -33,6 +33,7 @@ public class Tile : MonoBehaviour
     {
         status = !status;
         UpdateTileColor();
+        Character.SetIsJumping(false);
     }
 
     public bool GetStatus()

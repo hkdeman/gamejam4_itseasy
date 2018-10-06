@@ -34,7 +34,7 @@ public class RandomKeys : MonoBehaviour
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 //        if (Input.GetKeyDown(alpha[0]))
 //        {
 //            myMap.up();
@@ -56,7 +56,7 @@ public class RandomKeys : MonoBehaviour
 	    
 	    
 		//   /!\ DEBUGGGGGGGGGG !!
-	    if (Input.GetKeyDown(KeyCode.Z))
+	    if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W))
         {
             myMap.up();
             myTimer.DownBy(amount);
@@ -64,7 +64,7 @@ public class RandomKeys : MonoBehaviour
         {
             myMap.down();
             myTimer.DownBy(amount);
-        } else if (Input.GetKeyDown(KeyCode.Q))
+        } else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A))
         {
             myMap.left();
             myTimer.DownBy(amount);
