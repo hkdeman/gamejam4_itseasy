@@ -344,8 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdbdcc7f3106ef42932abccaffb8ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decMod: 0.018
-  creMod: 0.025
+  decMod: 0.3
+  creMod: 0.3
 --- !u!1 &351952221
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +974,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114124194705298626, guid: 73c1628ef47aff84a89e5032b5b725e1,
+        type: 2}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 293026376}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c1628ef47aff84a89e5032b5b725e1, type: 2}
   m_IsPrefabAsset: 0

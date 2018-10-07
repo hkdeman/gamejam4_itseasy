@@ -6,23 +6,50 @@ using UnityEngine.SceneManagement;
 public class Scene : MonoBehaviour {
 
     float sceneTimer = 0;
-    private GameObject soundManager;
-	// Use this for initialization
+    public GameObject soundManager;
+    private SoundControl control;
+    int scene = -1;
+    private bool shouldswitch = false;
+    private bool isInc = true;
+    
+    // Use this for initialization
 	void Start () {
         soundManager = GameObject.Find("MusicPlayer");
-        StartCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
+        control = soundManager.GetComponent<SoundControl>();
+        //StartCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+        if (shouldswitch && soundFade() && scene != -1)
+        {
+            SceneManager.LoadScene(scene);
+        } else if (!control.isMax() && isInc)
+        {
+            Debug.Log("increasing");
+            control.Crescendo();
+        }
 	}
+
+    public bool soundFade()
+    {
+        if (!control.isMin())
+        {
+            control.Decrescendo();
+
+            return false;
+        } else
+        {
+            return true;
+        }
+    }
 
 	public void loadScene(int scene)
 	{
-        // decresendo music before loading scene
-        StartCoroutine(soundManager.GetComponent<SoundControl>().Decrescendo());
-		SceneManager.LoadScene(scene);
+        // StopCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
+        this.scene = scene;
+        shouldswitch = true;
+        isInc = false;
 	}
 
 	public void quit()
