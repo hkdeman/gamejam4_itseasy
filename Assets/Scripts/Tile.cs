@@ -84,7 +84,14 @@ public class Tile : MonoBehaviour
             GameObject myCharacter = GameObject.Find("MainCharacter");
             myCharacter.GetComponent<Rigidbody>().velocity = Vector3.up * 7;
             Invoke("changeScene", 1);
-//            StartCoroutine(Lefting());
+            if (GameObject.Find("Map").GetComponent<Map>().currentLevel == 4)
+            {
+                Debug.Log("WIdsfsdNNN !");
+
+                GameObject.Find("Listener").GetComponent<win>().won();
+        
+//                GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dance");
+            }
         }
     }
 
