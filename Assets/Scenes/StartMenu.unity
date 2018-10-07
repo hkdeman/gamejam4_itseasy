@@ -344,6 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdbdcc7f3106ef42932abccaffb8ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regular: {fileID: 8300000, guid: 7cfc79f417e5ecc41b2b4e0cac83d211, type: 3}
+  hurryTFU: {fileID: 0}
   decMod: 0.3
   creMod: 0.3
 --- !u!1 &351952221
