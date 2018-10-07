@@ -52,6 +52,8 @@ public class TimerManager : MonoBehaviour
 
 	private void Lose()
 	{
+		GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dead");
+		
 		Panel = Panel.GetComponent<Image>();
 		var tempColor = Panel.color;
 		tempColor.a += 0.15f * Time.deltaTime;
