@@ -42,8 +42,6 @@ public class Tile : MonoBehaviour
         status = !status;
         UpdateTileColor();
         CallWinCodition();
-        Character.SetIsJumping(false);
-        col.gameObject.GetComponent<Animator>().SetBool("IsJumping", false);
     }
 
     private void CallWinCodition()
