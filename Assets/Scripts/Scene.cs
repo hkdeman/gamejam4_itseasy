@@ -53,12 +53,8 @@ public class Scene : MonoBehaviour {
 
     public void quickLoad(int scene)
     {
-<<<<<<< HEAD
-        //gameObject.GetComponent<AudioSource>().Play();
-=======
         TimerManager.SetStatus(true);
         GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
->>>>>>> 9e52f3e410319b2cc3ec6072392a758f5ac557bd
         SceneManager.LoadScene(scene);
     }
 
