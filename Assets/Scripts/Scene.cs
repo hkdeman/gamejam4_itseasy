@@ -23,6 +23,7 @@ public class Scene : MonoBehaviour {
 	void FixedUpdate () {
         if (shouldswitch && soundFade() && scene != -1)
         {
+            Debug.Log("switching");
             SceneManager.LoadScene(scene);
         } else if (!control.isMax() && isInc)
         {
@@ -36,7 +37,6 @@ public class Scene : MonoBehaviour {
         if (!control.isMin())
         {
             control.Decrescendo();
-
             return false;
         } else
         {

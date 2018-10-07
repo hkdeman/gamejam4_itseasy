@@ -29,7 +29,7 @@ public class SoundControl : MonoBehaviour
     {
         if (fadeTimer <= 0)
         {
-            audio.volume += 0.1f;
+            audio.volume += creMod;
             fadeTimer = 1f;
         } else
         {
@@ -44,7 +44,7 @@ public class SoundControl : MonoBehaviour
     {
         if (fadeTimer <= 0)
         {
-            audio.volume -= 0.1f; //audio.volume * decMod;
+            audio.volume -= decMod; //audio.volume * decMod;
             fadeTimer = 1f;
         } else
         {

@@ -49,8 +49,7 @@ public class Tile : MonoBehaviour
         if (GameObject.Find("Map").GetComponent<Map>().CheckWinCondition())
         {
             Debug.Log("WINNN !");
-            StartCoroutine("Lefting");
-            
+            StartCoroutine(Lefting());
         }
     }
 
@@ -67,6 +66,6 @@ public class Tile : MonoBehaviour
             character.transform.position += new Vector3(0, 0.1f, 0);
             yield return null;
         }
-        SceneManager.LoadScene(0);
+        GameObject.Find("SceneManager").GetComponent<Scene>().loadScene(0);
     }
 }
