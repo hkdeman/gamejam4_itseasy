@@ -66,6 +66,6 @@ public class Tile : MonoBehaviour
             character.transform.position += new Vector3(0, 0.1f, 0);
             yield return null;
         }
-        GameObject.Find("SceneManager").GetComponent<Scene>().loadScene(0);
+        GameObject.Find("SceneManager").GetComponent<Scene>().loadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
