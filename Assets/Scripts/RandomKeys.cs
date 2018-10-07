@@ -56,22 +56,25 @@ public class RandomKeys : MonoBehaviour
 	    
 	    
 		//   /!\ DEBUGGGGGGGGGG !!
-	    if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus())
+	    
+	    Rigidbody myCharacterRigidbody = GameObject.Find("MainCharacter").GetComponent<Rigidbody>();
+	    
+	    if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus() && myCharacterRigidbody.velocity == Vector3.zero)
         {
             myMap.up();
             myTimer.DownBy(amount);
             GameObject.Find("Toast").GetComponent<Toast>().createToast();
-        } else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus())
+        } else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus() && myCharacterRigidbody.velocity == Vector3.zero)
         {
             myMap.down();
             myTimer.DownBy(amount);
             GameObject.Find("Toast").GetComponent<Toast>().createToast();
-        } else if (Input.GetKeyDown(KeyCode.A) && TimerManager.GetTimerStatus())
+        } else if (Input.GetKeyDown(KeyCode.A) && TimerManager.GetTimerStatus() && myCharacterRigidbody.velocity == Vector3.zero)
         {
             myMap.left();
             myTimer.DownBy(amount);
             GameObject.Find("Toast").GetComponent<Toast>().createToast();
-        } else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())
+        } else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus() && myCharacterRigidbody.velocity == Vector3.zero)
         {
             myMap.right();
             myTimer.DownBy(amount);

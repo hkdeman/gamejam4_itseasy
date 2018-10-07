@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
 
     Animator animator;
 
+    private float yVelocity = 0.0F;
+
     void Start()
     {
         STEPS = RANGE / 5;
@@ -26,18 +28,7 @@ public class Character : MonoBehaviour
         {
             SetIsJumping(true);
             animator.SetBool("IsJumping", isJumping);
-
-            for (float i = 0; i < RANGE; i += STEPS)
-            {
-                if (i < RANGE / 2)
-                {
-                    gameObject.transform.position += new Vector3(-1 * STEPS * RANGE_TO_SCALE_RATIO, STEPS, 0);
-                }
-                else
-                {
-                    gameObject.transform.position += new Vector3(-1 * STEPS * RANGE_TO_SCALE_RATIO, RANGE - STEPS, 0);
-                }
-            }
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-3.175f, 3.175f, 0f);
         }
     }
 
@@ -47,18 +38,8 @@ public class Character : MonoBehaviour
         {
             SetIsJumping(true);
             animator.SetBool("IsJumping", isJumping);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(3.175f, 3.175f, 0f);
 
-            for (float i = 0; i < RANGE; i += STEPS)
-            {
-                if (i < RANGE / 2)
-                {
-                    gameObject.transform.position += new Vector3(STEPS * RANGE_TO_SCALE_RATIO, STEPS, 0);
-                }
-                else
-                {
-                    gameObject.transform.position += new Vector3(STEPS * RANGE_TO_SCALE_RATIO, RANGE - STEPS, 0);
-                }
-            }
         }
     }
 	
@@ -68,18 +49,8 @@ public class Character : MonoBehaviour
         {
             SetIsJumping(true);
             animator.SetBool("IsJumping", isJumping);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, -3.175f);
 
-            for (float i = 0; i < RANGE; i += STEPS)
-            {
-                if (i < RANGE / 2)
-                {
-                    gameObject.transform.position += new Vector3(0, STEPS, -1 * STEPS * RANGE_TO_SCALE_RATIO);
-                }
-                else
-                {
-                    gameObject.transform.position += new Vector3(0, RANGE - STEPS, -1 * STEPS * RANGE_TO_SCALE_RATIO);
-                }
-            }
         }
     }
 	
@@ -89,19 +60,18 @@ public class Character : MonoBehaviour
         {
             SetIsJumping(true);
             animator.SetBool("IsJumping", isJumping);
+            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, 3.175f);
 
-            for (float i = 0; i < RANGE; i += STEPS)
-            {
-                if (i < RANGE / 2)
-                {
-                    gameObject.transform.position += new Vector3(0, STEPS, STEPS * RANGE_TO_SCALE_RATIO);
-                }
-                else
-                {
-                    gameObject.transform.position += new Vector3(0, RANGE - STEPS, STEPS * RANGE_TO_SCALE_RATIO);
-                }
-            }
         }
+    }
+    
+    public IEnumerator uu()
+    {
+        float newPosition = Mathf.SmoothDamp(gameObject.transform.position.y, gameObject.transform.position.y + 2, ref yVelocity, 0.3f);
+        gameObject.transform.position += new Vector3(gameObject.transform.position.x, newPosition, newPosition);
+        yield return null;
+        
+        
     }
 
     public static void SetIsJumping(bool iJ) {

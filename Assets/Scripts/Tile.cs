@@ -36,6 +36,13 @@ public class Tile : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+            
+        Debug.Log(col.gameObject.transform.position);
+        Debug.Log(transform.position);
+        
+        col.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
+        
+        
         status = !status;
         UpdateTileColor();
         CallWinCodition();
@@ -49,7 +56,10 @@ public class Tile : MonoBehaviour
         if (GameObject.Find("Map").GetComponent<Map>().CheckWinCondition())
         {
             Debug.Log("WINNN !");
-            StartCoroutine(Lefting());
+            GameObject myCharacter = GameObject.Find("MainCharacter");
+            myCharacter.GetComponent<Rigidbody>().velocity = Vector3.up * 7;
+            Invoke("changeScene", 1);
+//            StartCoroutine(Lefting());
         }
     }
 
@@ -57,15 +67,9 @@ public class Tile : MonoBehaviour
     {
         return this.status;
     }
-    
-    public IEnumerator Lefting()
+
+    public void changeScene()
     {
-        GameObject character = GameObject.Find("MainCharacter");
-        while (character.transform.position.y < 2.5f)
-        {
-            character.transform.position += new Vector3(0, 0.1f, 0);
-            yield return null;
-        }
-        GameObject.Find("SceneManager").GetComponent<Scene>().loadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
