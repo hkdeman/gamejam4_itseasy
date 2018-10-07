@@ -44,6 +44,7 @@ public class Scene : MonoBehaviour {
 	public void loadScene(int scene)
 	{
 	    TimerManager.SetStatus(true);
+        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
         this.scene = scene;
         shouldswitch = true;
         isInc = false;
@@ -52,6 +53,7 @@ public class Scene : MonoBehaviour {
     public void quickLoad(int scene)
     {
         TimerManager.SetStatus(true);
+        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
         SceneManager.LoadScene(scene);
     }
 
