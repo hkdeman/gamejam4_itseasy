@@ -16,7 +16,6 @@ public class Scene : MonoBehaviour {
 	void Start () {
         soundManager = GameObject.Find("MusicPlayer");
         control = soundManager.GetComponent<SoundControl>();
-        //StartCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
     }
 	
 	// Update is called once per frame
@@ -46,7 +45,6 @@ public class Scene : MonoBehaviour {
 
 	public void loadScene(int scene)
 	{
-        // StopCoroutine(soundManager.GetComponent<SoundControl>().Crescendo());
         this.scene = scene;
         shouldswitch = true;
         isInc = false;

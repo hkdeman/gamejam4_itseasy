@@ -21,6 +21,7 @@ public class SoundControl : MonoBehaviour
     void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
+        timer = GameObject.Find("Timer");
         audio.volume = 0.05f;
         audio.clip = regular;
         audio.Play();
@@ -38,7 +39,6 @@ public class SoundControl : MonoBehaviour
         if (timer != null)
         {
             if (timer.GetComponent<TimerManager>().getRemainingTime() <= 40 && !intenseMode) { 
-                Debug.Log("also here");
                 audio.clip = hurryTFU;
                 audio.volume = 1.0f;
                 audio.Play();
@@ -66,7 +66,7 @@ public class SoundControl : MonoBehaviour
     {
         if (fadeTimer <= 0)
         {
-            audio.volume -= decMod; //audio.volume * decMod;
+            audio.volume -= decMod;
             fadeTimer = 1f;
         } else
         {
