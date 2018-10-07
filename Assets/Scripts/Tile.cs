@@ -35,13 +35,9 @@ public class Tile : MonoBehaviour
 
 
     void OnCollisionEnter(Collision col)
-    {
-            
-        Debug.Log(col.gameObject.transform.position);
-        Debug.Log(transform.position);
-        
+    {   
         col.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
-        
+        Character.isJumping = false;
         
         status = !status;
         UpdateTileColor();
