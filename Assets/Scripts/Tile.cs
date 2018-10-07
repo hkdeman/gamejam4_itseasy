@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour
 {
 
     private AudioSource tileSource;
+    public AudioClip landMovement;
+    public AudioClip winSound;
 
     public Position position;
     public bool status;
@@ -58,6 +60,7 @@ public class Tile : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
 
+        tileSource.clip = landMovement;
         tileSource.Play();
 
         col.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
@@ -74,6 +77,9 @@ public class Tile : MonoBehaviour
         
         if (GameObject.Find("Map").GetComponent<Map>().CheckWinCondition())
         {
+            tileSource.clip = winSound;
+            tileSource.Play();
+
             Debug.Log("WINNN !");
             GameObject myCharacter = GameObject.Find("MainCharacter");
             myCharacter.GetComponent<Rigidbody>().velocity = Vector3.up * 7;

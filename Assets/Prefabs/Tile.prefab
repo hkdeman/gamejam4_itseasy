@@ -108,15 +108,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cc70b4959a088a140afb060d809b59ef, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 46bb7a3c6d924a942ba2319973655720, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.289
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 134
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb6822251fabd64bba0dddb876a0494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landMovement: {fileID: 8300000, guid: 46bb7a3c6d924a942ba2319973655720, type: 3}
+  winSound: {fileID: 8300000, guid: 30d4a7173ac81e64ab8b0571851569bc, type: 3}
   status: 0
   WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
   LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}

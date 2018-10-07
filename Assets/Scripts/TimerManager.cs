@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TimerManager : MonoBehaviour
 {
+    private AudioSource timerAudioSource;
+    public AudioClip dieClip;
 
 	public Image Panel;
 	public Image ButtonAgain;
@@ -15,6 +17,7 @@ public class TimerManager : MonoBehaviour
     public float timeUp = 0.0f;
 
 	private bool hasLose = false;
+    private bool hasPlayed = false;
 
 	public static bool status = true;
 
@@ -25,6 +28,7 @@ public class TimerManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        timerAudioSource = GetComponent<AudioSource>();
 		hasLose = false;
 	}
 	
@@ -45,6 +49,17 @@ public class TimerManager : MonoBehaviour
         return timeUp;
     }
 
+    private void FixedUpdate()
+    {
+        if (hasLose && !hasPlayed)
+        {
+            
+            timerAudioSource.PlayOneShot(dieClip);
+            //timerAudioSource();
+            hasPlayed = true;
+        }
+    }
+
     public float getRemainingTime()
     {
         return time;
@@ -52,6 +67,7 @@ public class TimerManager : MonoBehaviour
 
 	private void Lose()
 	{
+       
 		GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dead");
 		
 		Panel = Panel.GetComponent<Image>();
@@ -71,7 +87,8 @@ public class TimerManager : MonoBehaviour
 		
 		if (!hasLose)
 		{
-			StartCoroutine(FadeTextToFullAlpha(1f, textGameOver));
+            //timerAudioSource.clip = dieClip;
+            StartCoroutine(FadeTextToFullAlpha(1f, textGameOver));
 			StartCoroutine(FadeTextToFullAlpha(7f, textAgain));
 			StartCoroutine(FadeTextToFullAlpha(7f, textQuit));
 			hasLose = true;
