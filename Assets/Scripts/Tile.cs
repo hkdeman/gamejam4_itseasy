@@ -19,7 +19,12 @@ public class Tile : MonoBehaviour
     void Start()
     {
         m_Renderer = GetComponent<Renderer>();
-        UpdateTileColor();
+        Map map = GameObject.FindWithTag("Map").GetComponent<Map>();
+        if (map.currentLevel == 4) {
+            RandomTileColor();
+        } else {
+            UpdateTileColor();
+        }
     }
 
     void UpdateTileColor() {
@@ -29,6 +34,19 @@ public class Tile : MonoBehaviour
         }
         else
         {
+            m_Renderer.material.SetTexture("_MainTex", LOSE);
+        }
+    }
+
+    void RandomTileColor() {
+        if (Mathf.RoundToInt(Random.Range(0, 2)) == 1)
+        {
+            status = true;
+            m_Renderer.material.SetTexture("_MainTex", WIN);
+        }
+        else
+        {
+            status = false;
             m_Renderer.material.SetTexture("_MainTex", LOSE);
         }
     }
