@@ -1512,7 +1512,7 @@ RectTransform:
   - {fileID: 2087959964}
   - {fileID: 144040716}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4355,7 +4355,7 @@ Transform:
   m_Children:
   - {fileID: 996861854}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &911670604
 GameObject:
@@ -4592,7 +4592,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956747336
 GameObject:
@@ -5350,7 +5350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132000413
 GameObject:
@@ -5781,7 +5781,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200176595535140, guid: 73c1628ef47aff84a89e5032b5b725e1, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c1628ef47aff84a89e5032b5b725e1, type: 2}
@@ -6069,9 +6069,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 690776172}
+  particlesController: {fileID: 1034404803858210, guid: 4ea287ae6aed4453fa8edc35e1946258,
+    type: 2}
   SCALE: 2
   ROWS: 5
   COLS: 5
+  timer: {fileID: 105356129}
   xClockPos: 3
   zClockPos: 2
   levelOneMap: 01000000010000000100000001000000000000000000000000000000010000000100000001000000000000000000000000000000010000000000000000000000010000000100000001000000010000000000000001000000000000000100000000000000
@@ -6088,7 +6091,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354387036
 GameObject:
@@ -6239,7 +6242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4778068599998954, guid: 47e3193db2dbc5e44853fb90ba0347af, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47e3193db2dbc5e44853fb90ba0347af, type: 2}
