@@ -166,7 +166,7 @@ public class Map : MonoBehaviour
 				return false;
 			}
 
-			Debug.Log(("Pass"));
+			Debug.Log(("PassDOWN"));
 			rotate("down");
             currentPosition.z -= 1;
             CheckIfClockThere();
