@@ -37,8 +37,9 @@ public class MainCameraRotator : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !rotating)
-        {
+        if (Input.GetKeyDown(KeyCode.E) && !rotating) {
+            StartCoroutine(RotateMe(Vector3.up * -90.62f, 0.3f));
+        } else if (Input.GetKeyDown(KeyCode.Q) && !rotating) {
             StartCoroutine(RotateMe(Vector3.up * 90.62f, 0.3f));
         }
     }
