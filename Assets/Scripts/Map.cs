@@ -22,6 +22,8 @@ public class Map : MonoBehaviour
     public GameObject tile;
     public GameObject clock;
 
+	private bool clockStatus = true;
+
     Position clockPosition;
     Position currentPosition;
 
@@ -61,7 +63,7 @@ public class Map : MonoBehaviour
                     if (clockPosition.x == x && clockPosition.z == z)
                     {
                         print(clockPosition);
-                        spawnedClock = (GameObject) Instantiate(clock, new Vector3(x * SCALE, 2, z * SCALE), clock.transform.rotation);
+                        spawnedClock = (GameObject) Instantiate(clock, new Vector3(x * SCALE, 2f, z * SCALE), clock.transform.rotation);
                     }
                 }
             }
@@ -208,12 +210,17 @@ public class Map : MonoBehaviour
 	}
 
     private void CheckIfClockThere() {
-        if(clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z) {
-            Transform t = spawnedClock.transform;
-            Destroy(spawnedClock);
-            Instantiate(particlesController, t.position, t.rotation);
-            timer.time += 15.0f;
-        } 
+	    if (clockStatus)
+	    {
+		    if (clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z)
+		    {
+			    Transform t = spawnedClock.transform;
+			    Destroy(spawnedClock);
+			    Instantiate(particlesController, t.position, t.rotation);
+			    timer.time += 15.0f;
+			    clockStatus = false;
+		    }
+	    }
     }
 
     private void rotate(string direction)
