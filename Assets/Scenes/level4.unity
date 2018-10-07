@@ -5493,7 +5493,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 901081064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114124194705298626, guid: 73c1628ef47aff84a89e5032b5b725e1,
+          type: 2}
+        m_MethodName: quickLoad
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &901081063
@@ -12205,7 +12217,7 @@ MonoBehaviour:
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
   coin: {fileID: 1884969959969806, guid: abb51eec038e64076b0cc0c32a6ebc7f, type: 2}
   score: 0
-  text: {fileID: 0}
+  text: {fileID: 2101300233}
 --- !u!4 &2035319531
 Transform:
   m_ObjectHideFlags: 0
