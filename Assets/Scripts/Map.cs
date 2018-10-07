@@ -10,8 +10,8 @@ public class Map : MonoBehaviour
     public GameObject myCharacter;
     public GameObject particlesController;
     public int SCALE = 2;
-    public int ROWS = 3;
-    public int COLS = 3;
+    public int ROWS;
+    public int COLS;
     public TimerManager timer;
     public int xClockPos, zClockPos;
 
