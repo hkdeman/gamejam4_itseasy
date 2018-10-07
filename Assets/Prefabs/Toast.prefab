@@ -9,19 +9,20 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1737426152145368}
+  m_RootGameObject: {fileID: 1896606660577132}
   m_IsPrefabAsset: 1
---- !u!1 &1737426152145368
+--- !u!1 &1896606660577132
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 224149174750639564}
-  - component: {fileID: 222591409822854590}
-  - component: {fileID: 114880800767263940}
-  - component: {fileID: 114630220881562758}
+  - component: {fileID: 224142650422974768}
+  - component: {fileID: 222637385652051162}
+  - component: {fileID: 114121524173270240}
+  - component: {fileID: 114344564873469090}
+  - component: {fileID: 95064940697117242}
   m_Layer: 5
   m_Name: Toast
   m_TagString: Untagged
@@ -29,23 +30,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114630220881562758
-MonoBehaviour:
+--- !u!95 &95064940697117242
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737426152145368}
+  m_GameObject: {fileID: 1896606660577132}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f278dcf2e52cf3945b318360e2ed74c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114880800767263940
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 239dda6424f77aa4884792c1cc532458, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114121524173270240
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737426152145368}
+  m_GameObject: {fileID: 1896606660577132}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -73,19 +81,30 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: -5
---- !u!222 &222591409822854590
+--- !u!114 &114344564873469090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1896606660577132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f278dcf2e52cf3945b318360e2ed74c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &222637385652051162
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737426152145368}
+  m_GameObject: {fileID: 1896606660577132}
   m_CullTransparentMesh: 0
---- !u!224 &224149174750639564
+--- !u!224 &224142650422974768
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1737426152145368}
+  m_GameObject: {fileID: 1896606660577132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
