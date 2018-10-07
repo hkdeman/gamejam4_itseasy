@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Scene : MonoBehaviour {
 
@@ -45,7 +46,14 @@ public class Scene : MonoBehaviour {
 	public void loadScene(int scene)
 	{
 	    TimerManager.SetStatus(true);
-        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
+        try
+        {
+            GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
+        }
+        catch (Exception e)
+        {
+
+        }
         this.scene = scene;
         shouldswitch = true;
         isInc = false;
@@ -54,7 +62,11 @@ public class Scene : MonoBehaviour {
     public void quickLoad(int scene)
     {
         TimerManager.SetStatus(true);
-        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
+        try {
+            GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
+        } catch(Exception e) {
+
+        }
         SceneManager.LoadScene(scene);
     }
 
