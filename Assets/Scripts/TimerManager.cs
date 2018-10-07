@@ -112,6 +112,11 @@ public class TimerManager : MonoBehaviour
 
 	}
 
+	public static void SetStatus(bool bo)
+	{
+		status = bo;
+	}
+
 	public void DownBy(float amount)
     {
 	    Debug.Log("Down by " + amount);

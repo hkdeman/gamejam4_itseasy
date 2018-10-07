@@ -43,6 +43,7 @@ public class Scene : MonoBehaviour {
 
 	public void loadScene(int scene)
 	{
+	    TimerManager.SetStatus(true);
         this.scene = scene;
         shouldswitch = true;
         isInc = false;
@@ -50,6 +51,7 @@ public class Scene : MonoBehaviour {
 
     public void quickLoad(int scene)
     {
+        TimerManager.SetStatus(true);
         SceneManager.LoadScene(scene);
     }
 

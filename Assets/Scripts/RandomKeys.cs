@@ -59,8 +59,10 @@ public class RandomKeys : MonoBehaviour
 	    switch (CurrentLevel)
 	    {
 	       case 1 :
+		       Debug.Log("rr");
+		       Debug.Log(TimerManager.GetTimerStatus());
 		       if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus())                
-		       {                                                                                
+		       {   
 			       myMap.up();                                                                  
 			       myTimer.DownBy(amount);                                                      
 			       GameObject.Find("Toast").GetComponent<Toast>().createToast();                
