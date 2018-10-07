@@ -14,8 +14,10 @@ public class Map : MonoBehaviour
     public int COLS;
     public TimerManager timer;
     public int xClockPos, zClockPos;
+    //public int currentLevel;
+    //public Texture2D WIN, LOSE;
 
-	private GameObject[,] map;
+    private GameObject[,] map;
     public int[] levelOneMap;
 
 	
@@ -58,6 +60,10 @@ public class Map : MonoBehaviour
                     if (levelOneMap[pos] == 1)
                     {
                         map[z, x] = (GameObject) Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
+                        /*if(currentLevel == 4)
+                        {
+                            CreateDisco(map[z,x]);
+                        }*/
                     }
 
                     if (clockPosition.x == x && clockPosition.z == z)
@@ -265,4 +271,22 @@ public class Map : MonoBehaviour
 	
 		return true;
 	}
+
+    /*public void CreateDisco(GameObject go)
+    {
+        Renderer rend;
+
+        rend = go.GetComponent<Tile>().GetComponent<Renderer>();
+
+        if (Mathf.RoundToInt(UnityEngine.Random.Range(0, 1)) == 1)
+        {
+            rend.material.SetTexture("_MainTex", WIN);
+        }
+        else
+        {
+            rend.material.SetTexture("_MainTex", LOSE);
+        }
+
+    }*/
+
 }
