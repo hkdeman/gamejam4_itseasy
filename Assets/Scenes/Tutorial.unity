@@ -5441,7 +5441,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "Oh no!\nFunGuy just \nfell from \nits basket"
+  m_text: "Oh no!\nFunGuy just \nfell from \nhis basket"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c121b47ca9df9a4e86da905d4bc2357, type: 2}
   m_sharedMaterial: {fileID: 21386141373176110, guid: 9c121b47ca9df9a4e86da905d4bc2357,
