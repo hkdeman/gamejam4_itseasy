@@ -22,11 +22,9 @@ public class Scene : MonoBehaviour {
 	void FixedUpdate () {
         if (shouldswitch && soundFade() && scene != -1)
         {
-            Debug.Log("switching");
             SceneManager.LoadScene(scene);
         } else if (!control.isMax() && isInc)
         {
-            Debug.Log("increasing");
             control.Crescendo();
         }
 	}
@@ -50,8 +48,14 @@ public class Scene : MonoBehaviour {
         isInc = false;
 	}
 
+    public void quickLoad(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
 	public void quit()
 	{
+        Debug.Log("quit");
 		Application.Quit();
 	}
 }
