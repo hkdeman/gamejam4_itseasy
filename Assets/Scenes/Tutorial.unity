@@ -7505,7 +7505,7 @@ GameObject:
   - component: {fileID: 1998521437}
   - component: {fileID: 1998521436}
   m_Layer: 0
-  m_Name: FunGuy (1)
+  m_Name: Translate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7578,8 +7578,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998521435}
   m_LocalRotation: {x: -0.0076091257, y: 0.69979477, z: -0.009274911, w: 0.71424323}
-  m_LocalPosition: {x: 1.879, y: 1.191, z: -1.2}
-  m_LocalScale: {x: 0.013037481, y: 0.013037481, z: 0.013037481}
+  m_LocalPosition: {x: 0.953, y: 1.777, z: -2.198}
+  m_LocalScale: {x: 0.009175869, y: 0.009175869, z: 0.009175869}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 26
