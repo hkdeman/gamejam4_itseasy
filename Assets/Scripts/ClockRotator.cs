@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ClockRotator : MonoBehaviour {
 
+    AudioSource collectibleSource;
+   
+
     bool rotating;
     bool collected;
 
@@ -16,6 +19,10 @@ public class ClockRotator : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        collectibleSource = GameObject.Find("CollectibleAudioSource").GetComponent<AudioSource>();
+       
+
         rotating = false;
         collected = false;
         StartCoroutine(RotateMe(Vector3.up * 180, 2.0f));
@@ -41,6 +48,8 @@ public class ClockRotator : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        collectibleSource.Play();
+        
         Instantiate(particles, gameObject.transform.position, gameObject.transform.rotation);
         if (map.currentLevel == 4) {
             timer.time += 15.0f;
