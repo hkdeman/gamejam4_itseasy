@@ -11,6 +11,7 @@ public class Map : MonoBehaviour
     public int SCALE = 2;
     public int ROWS = 3;
     public int COLS = 3;
+    public int xClockPos, zClockPos;
 
 	private GameObject[,] map;
     public int[] levelOneMap;
@@ -29,7 +30,7 @@ public class Map : MonoBehaviour
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];
-        clockPosition = new Position(0,3);
+        clockPosition = new Position(xClockPos, zClockPos);
         currentPosition = new Position(0, 0);
         createMap();
 		showMap();
