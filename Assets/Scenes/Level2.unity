@@ -7586,6 +7586,7 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 1332144365}
   timer: {fileID: 105356128}
+  CurrentLevel: 2
   viableButtons: qzsd
 --- !u!4 &1758253894
 Transform:

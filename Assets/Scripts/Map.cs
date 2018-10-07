@@ -14,8 +14,8 @@ public class Map : MonoBehaviour
     public int COLS;
     public TimerManager timer;
     public int xClockPos, zClockPos;
-    //public int currentLevel;
-    //public Texture2D WIN, LOSE;
+    public int currentLevel;
+    public Texture2D WIN, LOSE;
 
     private GameObject[,] map;
     public int[] levelOneMap;
@@ -27,7 +27,7 @@ public class Map : MonoBehaviour
 	private bool clockStatus = true;
 
     Position clockPosition;
-    Position currentPosition;
+    Vector3 currentPosition;
 
     GameObject spawnedClock;
 
@@ -37,7 +37,8 @@ public class Map : MonoBehaviour
 	{
 		map = new GameObject [ROWS, COLS];
         clockPosition = new Position(xClockPos, zClockPos);
-        currentPosition = new Position(0, 0);
+		currentPosition = myCharacter.transform.position;
+	        //new Position(0, 0);
         createMap();
 		showMap();
 	}
@@ -45,7 +46,7 @@ public class Map : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+		print(currentPosition);
 	}
 
 	public void createMap()
@@ -60,10 +61,6 @@ public class Map : MonoBehaviour
                     if (levelOneMap[pos] == 1)
                     {
                         map[z, x] = (GameObject) Instantiate(tile, new Vector3(x * SCALE, 0, z * SCALE), tile.transform.rotation);
-                        /*if(currentLevel == 4)
-                        {
-                            CreateDisco(map[z,x]);
-                        }*/
                     }
 
                     if (clockPosition.x == x && clockPosition.z == z)
@@ -104,22 +101,28 @@ public class Map : MonoBehaviour
 
 	public bool left()
 	{
-		
+
 		try
 		{
-			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x - SCALE)/SCALE] == null)
+			if (!Character.isJumping)
 			{
-				Debug.Log("Don't pass");
+				if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z) / SCALE,
+					    Mathf.RoundToInt(myCharacter.gameObject.transform.position.x - SCALE) / SCALE] == null)
+				{
+					Debug.Log("Don't pass");
+					rotate("left");
+					return false;
+				}
+
+				Debug.Log(("Pass"));
 				rotate("left");
-				return false;
+				currentPosition.x -= 1;
+				CheckIfClockThere();
+				myCharacter.GetComponent<Character>().MoveLeft();
+				return true;
 			}
 
-			Debug.Log(("Pass"));
-			rotate("left");
-            currentPosition.x -= 1;
-            CheckIfClockThere();
-            myCharacter.GetComponent<Character>().MoveLeft();
-			return true;
+			return false;
 		}
 
 		catch (IndexOutOfRangeException e)
@@ -135,22 +138,26 @@ public class Map : MonoBehaviour
 		
 		try
 		{
-		Debug.Log(Mathf.RoundToInt(myCharacter.gameObject.transform.position.x) / SCALE);
-			
-		if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x + SCALE)/SCALE] == null)
-		{
-			Debug.Log("Don't pass");
-			rotate("right");
+			if (!Character.isJumping)
+			{
+				if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z) / SCALE,
+					    Mathf.RoundToInt(myCharacter.gameObject.transform.position.x + SCALE) / SCALE] == null)
+				{
+					Debug.Log("Don't pass");
+					rotate("right");
+					return false;
+				}
+
+				Debug.Log(("Pass"));
+				rotate("right");
+				currentPosition.x += 1;
+				CheckIfClockThere();
+				myCharacter.GetComponent<Character>().MoveRight();
+				return true;
+			}
+
 			return false;
 		}
-
-		Debug.Log(("Pass"));
-		rotate("right");
-        currentPosition.x += 1;
-        CheckIfClockThere();
-        myCharacter.GetComponent<Character>().MoveRight();
-		return true;
-	}
 
 	catch (IndexOutOfRangeException e)
 	{
@@ -162,22 +169,28 @@ public class Map : MonoBehaviour
 
 	public bool down()
 	{
-		
+
 		try
-		{			
-			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z - SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
+		{
+			if (!Character.isJumping)
 			{
-				Debug.Log("Don't pass");
+				if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z - SCALE) / SCALE,
+					    Mathf.RoundToInt(myCharacter.gameObject.transform.position.x) / SCALE] == null)
+				{
+					Debug.Log("Don't pass");
+					rotate("down");
+					return false;
+				}
+
+				Debug.Log(("PassDOWN"));
 				rotate("down");
-				return false;
+				currentPosition.z -= 1;
+				CheckIfClockThere();
+				myCharacter.GetComponent<Character>().MoveDown();
+				return true;
 			}
 
-			Debug.Log(("PassDOWN"));
-			rotate("down");
-            currentPosition.z -= 1;
-            CheckIfClockThere();
-            myCharacter.GetComponent<Character>().MoveDown();
-			return true;
+			return false;
 		}
 
 		catch (IndexOutOfRangeException e)
@@ -191,20 +204,26 @@ public class Map : MonoBehaviour
 	public bool up()
 	{
 		try
-		{			
-			if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z + SCALE)/SCALE, Mathf.RoundToInt(myCharacter.gameObject.transform.position.x)/SCALE] == null)
+		{
+			if (!Character.isJumping)
 			{
-				Debug.Log("Don't pass");
+				if (map[Mathf.RoundToInt(myCharacter.gameObject.transform.position.z + SCALE) / SCALE,
+					    Mathf.RoundToInt(myCharacter.gameObject.transform.position.x) / SCALE] == null)
+				{
+					Debug.Log("Don't pass");
+					rotate("up");
+					return false;
+				}
+
+				Debug.Log(("Pass"));
 				rotate("up");
-				return false;
+				myCharacter.GetComponent<Character>().MoveUp();
+				currentPosition.z += 1;
+				CheckIfClockThere();
+				return true;
 			}
 
-			Debug.Log(("Pass"));
-			rotate("up");
-            currentPosition.z += 1;
-            CheckIfClockThere();
-            myCharacter.GetComponent<Character>().MoveUp(); 
-			return true;
+			return false;
 		}
 
 		catch (IndexOutOfRangeException e)
@@ -218,15 +237,29 @@ public class Map : MonoBehaviour
     private void CheckIfClockThere() {
 	    if (clockStatus)
 	    {
-		    if (clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z)
+            if ((Mathf.RoundToInt(clockPosition.x) == Mathf.RoundToInt(currentPosition.x)) && (Mathf.RoundToInt(clockPosition.z) == Mathf.RoundToInt(currentPosition.z)))
 		    {
 			    Transform t = spawnedClock.transform;
+                int alreadyX = Mathf.RoundToInt(spawnedClock.transform.position.x);
+                int alreadyZ = Mathf.RoundToInt(spawnedClock.transform.position.z);
+                float y = spawnedClock.transform.position.y;
 			    Destroy(spawnedClock);
 			    Instantiate(particlesController, t.position, t.rotation);
 			    timer.time += 15.0f;
-			    clockStatus = false;
-		    }
+                clockStatus = false;
+            }
 	    }
+    }
+
+
+
+    private int GetAValueApartFrom(int min, int max,int avoid) {
+        int value = 0;
+        while(true) {
+            value = UnityEngine.Random.Range(min, max - 1);
+            if (value != avoid) break;
+        }
+        return value;
     }
 
     private void rotate(string direction)
@@ -271,22 +304,5 @@ public class Map : MonoBehaviour
 	
 		return true;
 	}
-
-    /*public void CreateDisco(GameObject go)
-    {
-        Renderer rend;
-
-        rend = go.GetComponent<Tile>().GetComponent<Renderer>();
-
-        if (Mathf.RoundToInt(UnityEngine.Random.Range(0, 1)) == 1)
-        {
-            rend.material.SetTexture("_MainTex", WIN);
-        }
-        else
-        {
-            rend.material.SetTexture("_MainTex", LOSE);
-        }
-
-    }*/
 
 }

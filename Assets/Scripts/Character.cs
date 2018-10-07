@@ -24,54 +24,62 @@ public class Character : MonoBehaviour
 
     public void MoveLeft()
 	{
-        if (!isJumping)
-        {
-            SetIsJumping(true);
-            animator.SetBool("IsJumping", isJumping);
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-3.175f, 3.175f, 0f);
-        }
+		if (!isJumping)
+		{
+			isJumping = true;
+			animator.Play("Jump");
+			Invoke("left", 0.4f);
+		}
     }
+
+	void left()
+	{
+		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(-3.175f, 3.175f, 0f);
+	}
 
 	public void MoveRight()
 	{
-        if (!isJumping)
-        {
-            SetIsJumping(true);
-            animator.SetBool("IsJumping", isJumping);
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(3.175f, 3.175f, 0f);
-
-        }
+		if (!isJumping)
+		{
+			isJumping = true;
+			animator.Play("Jump");
+			Invoke("right", 0.4f);
+		}
     }
+
+	void right()
+	{
+		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(3.175f, 3.175f, 0f);
+	}
 	
 	public void MoveDown()
 	{
-        if (!isJumping)
-        {
-            SetIsJumping(true);
-            animator.SetBool("IsJumping", isJumping);
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, -3.175f);
+	    if (!isJumping)
+	    {
+	        isJumping = true;
+	        animator.Play("Jump");
+	        Invoke("down", 0.4f);
+	    }
+    }
 
-        }
+    void down()
+    {
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, -3.175f);
     }
 	
     public void MoveUp()
 	{
-        if (!isJumping)
-        {
-            SetIsJumping(true);
-            animator.SetBool("IsJumping", isJumping);
-            gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, 3.175f);
+	    if (!isJumping)
+	    {
+	        isJumping = true;
+	        animator.Play("Jump");
+	        Invoke("up", 0.4f);
+	    }
+	}
 
-        }
-    }
-    
-    public IEnumerator uu()
+    private void up()
     {
-        float newPosition = Mathf.SmoothDamp(gameObject.transform.position.y, gameObject.transform.position.y + 2, ref yVelocity, 0.3f);
-        gameObject.transform.position += new Vector3(gameObject.transform.position.x, newPosition, newPosition);
-        yield return null;
-        
-        
+        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 3.175f, 3.175f);
     }
 
     public static void SetIsJumping(bool iJ) {

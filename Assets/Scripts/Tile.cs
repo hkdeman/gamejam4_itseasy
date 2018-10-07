@@ -19,7 +19,12 @@ public class Tile : MonoBehaviour
     void Start()
     {
         m_Renderer = GetComponent<Renderer>();
-        UpdateTileColor();
+        Map map = GameObject.FindWithTag("Map").GetComponent<Map>();
+        if (map.currentLevel == 4) {
+            RandomTileColor();
+        } else {
+            UpdateTileColor();
+        }
     }
 
     void UpdateTileColor() {
@@ -33,21 +38,28 @@ public class Tile : MonoBehaviour
         }
     }
 
+    void RandomTileColor() {
+        if (Mathf.RoundToInt(Random.Range(0, 2)) == 1)
+        {
+            status = true;
+            m_Renderer.material.SetTexture("_MainTex", WIN);
+        }
+        else
+        {
+            status = false;
+            m_Renderer.material.SetTexture("_MainTex", LOSE);
+        }
+    }
+
 
     void OnCollisionEnter(Collision col)
-    {
-            
-        Debug.Log(col.gameObject.transform.position);
-        Debug.Log(transform.position);
-        
+    {   
         col.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
-        
+        Character.isJumping = false;
         
         status = !status;
         UpdateTileColor();
         CallWinCodition();
-        Character.SetIsJumping(false);
-        col.gameObject.GetComponent<Animator>().SetBool("IsJumping", false);
     }
 
     private void CallWinCodition()

@@ -320,7 +320,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153295950751144, guid: f925c811657af85458ed34c3fd6d00c9, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 108660022016302806, guid: f925c811657af85458ed34c3fd6d00c9,
         type: 2}
@@ -2312,7 +2312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4200176595535140, guid: 73c1628ef47aff84a89e5032b5b725e1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c1628ef47aff84a89e5032b5b725e1, type: 2}
@@ -2929,7 +2929,7 @@ Transform:
   m_Children:
   - {fileID: 1526349086}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &448243112
 GameObject:
@@ -3053,7 +3053,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4478022907020882, guid: bff735402687bc24fbc896c7ce2b2064, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4478022907020882, guid: bff735402687bc24fbc896c7ce2b2064, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6212,7 +6212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4721670503009626, guid: 3424ac4deeac4834aab1c83caf3f5f93, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 108370041833190344, guid: 3424ac4deeac4834aab1c83caf3f5f93,
         type: 2}
@@ -7568,7 +7568,8 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 2035319529}
   timer: {fileID: 1261965268}
-  viableButtons: qzsd
+  CurrentLevel: 4
+  viableButtons: awsdqe
 --- !u!4 &1395376725
 Transform:
   m_ObjectHideFlags: 0
@@ -9354,7 +9355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153295950751144, guid: f925c811657af85458ed34c3fd6d00c9, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1390438416203164, guid: f925c811657af85458ed34c3fd6d00c9, type: 2}
       propertyPath: m_Name
@@ -10936,8 +10937,8 @@ GameObject:
   - component: {fileID: 2035319531}
   - component: {fileID: 2035319530}
   m_Layer: 0
-  m_Name: Map
-  m_TagString: Untagged
+  m_Name: 1
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10950,7 +10951,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035319529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e38ba3790ea1964dac20e75873bdd2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ddbd3f8c27747499e049c735cb5e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 1894033661}
@@ -10962,6 +10963,9 @@ MonoBehaviour:
   timer: {fileID: 1261965269}
   xClockPos: 3
   zClockPos: 2
+  currentLevel: 4
+  WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
+  LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}
   levelOneMap: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}

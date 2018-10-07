@@ -4617,6 +4617,9 @@ MonoBehaviour:
   timer: {fileID: 1506810540}
   xClockPos: 0
   zClockPos: 3
+  currentLevel: 0
+  WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
+  LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}
   levelOneMap: 01000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000010000000100000001000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
@@ -6805,6 +6808,7 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 1177609817}
   timer: {fileID: 1506810539}
+  CurrentLevel: 1
   viableButtons: qzsd
 --- !u!4 &1763152583
 Transform:
