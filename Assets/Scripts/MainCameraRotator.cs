@@ -45,7 +45,7 @@ public class MainCameraRotator : MonoBehaviour {
     {
         if (map.currentLevel != 4)
         {
-            if (Input.GetKeyDown(KeyCode.Q) && !rotating) {
+            if (Input.GetKeyDown(KeyCode.E) && !rotating) {
                 if((currentRotation == 0 && allowOrientationFour ) || 
                    (currentRotation == 1 && allowOrientationOne) || 
                    (currentRotation == 2 && allowOrientationTwo) || 
@@ -53,7 +53,7 @@ public class MainCameraRotator : MonoBehaviour {
                     currentRotation = currentRotation>0 ? (currentRotation-1) : 3;
                     StartCoroutine(RotateMe(new Vector3(0, -90f, 0), 0.3f));
                 }
-            } else if (Input.GetKeyDown(KeyCode.E) && !rotating) {
+            } else if (Input.GetKeyDown(KeyCode.Q) && !rotating) {
                 if ((currentRotation == 0 && allowOrientationTwo) ||
                     (currentRotation == 1 && allowOrientationThree) ||
                     (currentRotation == 2 && allowOrientationFour) ||

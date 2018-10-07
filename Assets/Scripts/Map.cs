@@ -63,7 +63,7 @@ public class Map : MonoBehaviour
                         Instantiate(clock, new Vector3(x * SCALE, 2f, z * SCALE), clock.transform.rotation);
                     }
 
-                    if(coinPosition.x == x && coinPosition.z == z) {
+                    if(coinPosition.x == x && coinPosition.z == z && currentLevel==4) {
                         Instantiate(coin, new Vector3(x * SCALE, 2f, z * SCALE), coin.transform.rotation);
                     }
                 }

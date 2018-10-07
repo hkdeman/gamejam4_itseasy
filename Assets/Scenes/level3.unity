@@ -2993,6 +2993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   play: {fileID: 186028222}
   quit: {fileID: 695675978}
+  menu: {fileID: 0}
 --- !u!224 &1104315619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3277,7 +3278,7 @@ GameObject:
   - component: {fileID: 1261965269}
   m_Layer: 0
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3294,12 +3295,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieClip: {fileID: 0}
-  Panel: {fileID: 2130596048}
   ButtonAgain: {fileID: 901081064}
   ButtonQuit: {fileID: 14379487}
+  ButtonMenu: {fileID: 0}
+  GameOverImage: {fileID: 0}
   textGameOver: {fileID: 623931396}
   textAgain: {fileID: 186028222}
   textQuit: {fileID: 695675978}
+  textMenu: {fileID: 0}
   timeUp: 0
   time: 180
   UITime: {fileID: 616782807}
@@ -5048,20 +5051,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 1894033661}
-  particlesController: {fileID: 1034404803858210, guid: 4ea287ae6aed4453fa8edc35e1946258,
-    type: 2}
   SCALE: 2
   ROWS: 6
   COLS: 6
-  timer: {fileID: 1261965269}
-  xClockPos: 2
+  xClockPos: 3
   zClockPos: 4
+  xCoinPos: 0
+  zCoinPos: 0
   currentLevel: 0
   WIN: {fileID: 0}
   LOSE: {fileID: 0}
   levelOneMap: 010000000100000000000000000000000000000000000000010000000100000001000000000000000000000000000000000000000100000001000000000000000000000000000000000000000100000001000000000000000000000000000000010000000100000001000000010000000000000000000000010000000000000000000000000000000000000000000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
+  coin: {fileID: 1884969959969806, guid: abb51eec038e64076b0cc0c32a6ebc7f, type: 2}
+  score: 0
+  text: {fileID: 0}
 --- !u!4 &2035319531
 Transform:
   m_ObjectHideFlags: 0

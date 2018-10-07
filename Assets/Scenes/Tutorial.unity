@@ -3267,7 +3267,7 @@ RectTransform:
   m_LocalScale: {x: 0.14862175, y: 0.14862175, z: 0.14862175}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -91.775}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4953,20 +4953,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 698040876}
-  particlesController: {fileID: 1034404803858210, guid: 4ea287ae6aed4453fa8edc35e1946258,
-    type: 2}
   SCALE: 2
   ROWS: 4
   COLS: 4
-  timer: {fileID: 1506810540}
   xClockPos: 0
   zClockPos: 3
+  xCoinPos: 0
+  zCoinPos: 0
   currentLevel: 0
   WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
   LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}
   levelOneMap: 01000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000010000000100000001000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
+  coin: {fileID: 1884969959969806, guid: abb51eec038e64076b0cc0c32a6ebc7f, type: 2}
+  score: 0
+  text: {fileID: 0}
 --- !u!4 &1177609819
 Transform:
   m_ObjectHideFlags: 0
@@ -6358,7 +6360,7 @@ GameObject:
   - component: {fileID: 1506810542}
   m_Layer: 0
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6375,7 +6377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieClip: {fileID: 8300000, guid: 7341f5691d11e544e907a2154c1f4659, type: 3}
-  Panel: {fileID: 2001952992}
   ButtonAgain: {fileID: 355180942}
   ButtonQuit: {fileID: 2085549926}
   ButtonMenu: {fileID: 566534763}
@@ -8497,7 +8498,7 @@ RectTransform:
   m_LocalScale: {x: 0.07441524, y: 0.07441524, z: 0.07441524}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 180, y: -90, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

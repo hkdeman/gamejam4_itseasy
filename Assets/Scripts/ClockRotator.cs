@@ -51,7 +51,6 @@ public class ClockRotator : MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
-
     }
 
     private int GetAValueApartFrom(int min, int max, int avoid)

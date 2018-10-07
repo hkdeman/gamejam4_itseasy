@@ -6416,6 +6416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   play: {fileID: 186028222}
   quit: {fileID: 695675978}
+  menu: {fileID: 0}
 --- !u!224 &1104315619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7118,12 +7119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9d7aec4a5223a48a601115e643c1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 2130596048}
+  dieClip: {fileID: 0}
   ButtonAgain: {fileID: 901081064}
   ButtonQuit: {fileID: 14379487}
+  ButtonMenu: {fileID: 0}
+  GameOverImage: {fileID: 0}
   textGameOver: {fileID: 623931396}
   textAgain: {fileID: 186028222}
   textQuit: {fileID: 695675978}
+  textMenu: {fileID: 0}
   timeUp: 0
   time: 180
   UITime: {fileID: 616782807}
@@ -7984,7 +7988,7 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 2035319529}
   timer: {fileID: 1261965268}
-  CurrentLevel: 1
+  CurrentLevel: 4
   viableButtons: awsdqe
 --- !u!4 &1395376725
 Transform:
@@ -11805,6 +11809,8 @@ MonoBehaviour:
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
   coin: {fileID: 1884969959969806, guid: abb51eec038e64076b0cc0c32a6ebc7f, type: 2}
+  score: 0
+  text: {fileID: 0}
 --- !u!4 &2035319531
 Transform:
   m_ObjectHideFlags: 0
