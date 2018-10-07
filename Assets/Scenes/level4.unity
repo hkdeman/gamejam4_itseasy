@@ -6827,7 +6827,7 @@ GameObject:
   - component: {fileID: 1261965269}
   m_Layer: 0
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7708,7 +7708,7 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 2035319529}
   timer: {fileID: 1261965268}
-  CurrentLevel: 4
+  CurrentLevel: 1
   viableButtons: awsdqe
 --- !u!4 &1395376725
 Transform:
@@ -10398,6 +10398,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 65843794329826894, guid: c21903dd2c52e47c6aeb15cd7b628ee4,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21903dd2c52e47c6aeb15cd7b628ee4, type: 2}
   m_IsPrefabAsset: 0
@@ -11096,20 +11101,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacter: {fileID: 1894033661}
-  particlesController: {fileID: 1034404803858210, guid: 4ea287ae6aed4453fa8edc35e1946258,
-    type: 2}
   SCALE: 2
   ROWS: 8
   COLS: 8
-  timer: {fileID: 1261965269}
   xClockPos: 0
   zClockPos: 5
+  xCoinPos: 5
+  zCoinPos: 0
   currentLevel: 4
   WIN: {fileID: 2800000, guid: 2f5697d328fe2d442b1d7d5019414bb2, type: 3}
   LOSE: {fileID: 2800000, guid: 2f39182543f224c0d8c1a8ad981d5b98, type: 3}
   levelOneMap: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   tile: {fileID: 1922261120091652, guid: 489ec324984aa47039d0d101c92cbb0c, type: 2}
   clock: {fileID: 1554082215372234, guid: fbc5f0a11dd2a4f3485f967e840073ed, type: 2}
+  coin: {fileID: 1884969959969806, guid: abb51eec038e64076b0cc0c32a6ebc7f, type: 2}
 --- !u!4 &2035319531
 Transform:
   m_ObjectHideFlags: 0

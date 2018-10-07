@@ -2,18 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Map : MonoBehaviour
 {
 
 
     public GameObject myCharacter;
-    public GameObject particlesController;
     public int SCALE = 2;
     public int ROWS;
     public int COLS;
-    public TimerManager timer;
     public int xClockPos, zClockPos;
+    public int xCoinPos, zCoinPos;
     public int currentLevel;
     public Texture2D WIN, LOSE;
 
@@ -23,30 +23,21 @@ public class Map : MonoBehaviour
 	
     public GameObject tile;
     public GameObject clock;
+    public GameObject coin;
 
 	private bool clockStatus = true;
 
-    Position clockPosition;
-    Vector3 currentPosition;
-
-    GameObject spawnedClock;
-
+    Vector3 clockPosition;
+    Vector3 coinPosition;
 
 	// Use this for initialization
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];
-        clockPosition = new Position(xClockPos, zClockPos);
-		currentPosition = myCharacter.transform.position;
-	        //new Position(0, 0);
+        clockPosition = new Vector3(xClockPos, 0, zClockPos);
+        coinPosition = new Vector3(xCoinPos, 0, zCoinPos);
         createMap();
 		showMap();
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		print(currentPosition);
 	}
 
 	public void createMap()
@@ -65,8 +56,11 @@ public class Map : MonoBehaviour
 
                     if (clockPosition.x == x && clockPosition.z == z)
                     {
-                        print(clockPosition);
-                        spawnedClock = (GameObject) Instantiate(clock, new Vector3(x * SCALE, 2f, z * SCALE), clock.transform.rotation);
+                        Instantiate(clock, new Vector3(x * SCALE, 2f, z * SCALE), clock.transform.rotation);
+                    }
+
+                    if(coinPosition.x == x && coinPosition.z == z) {
+                        Instantiate(coin, new Vector3(x * SCALE, 2f, z * SCALE), coin.transform.rotation);
                     }
                 }
             }
@@ -116,8 +110,6 @@ public class Map : MonoBehaviour
 
 				Debug.Log(("Pass"));
 				rotate("left");
-				currentPosition.x -= 1;
-				CheckIfClockThere();
 				myCharacter.GetComponent<Character>().MoveLeft();
 				return true;
 			}
@@ -150,8 +142,6 @@ public class Map : MonoBehaviour
 
 				Debug.Log(("Pass"));
 				rotate("right");
-				currentPosition.x += 1;
-				CheckIfClockThere();
 				myCharacter.GetComponent<Character>().MoveRight();
 				return true;
 			}
@@ -184,8 +174,6 @@ public class Map : MonoBehaviour
 
 				Debug.Log(("PassDOWN"));
 				rotate("down");
-				currentPosition.z -= 1;
-				CheckIfClockThere();
 				myCharacter.GetComponent<Character>().MoveDown();
 				return true;
 			}
@@ -218,8 +206,6 @@ public class Map : MonoBehaviour
 				Debug.Log(("Pass"));
 				rotate("up");
 				myCharacter.GetComponent<Character>().MoveUp();
-				currentPosition.z += 1;
-				CheckIfClockThere();
 				return true;
 			}
 
@@ -234,33 +220,6 @@ public class Map : MonoBehaviour
 		}
 	}
 
-    private void CheckIfClockThere() {
-	    if (clockStatus)
-	    {
-            if ((Mathf.RoundToInt(clockPosition.x) == Mathf.RoundToInt(currentPosition.x)) && (Mathf.RoundToInt(clockPosition.z) == Mathf.RoundToInt(currentPosition.z)))
-		    {
-			    Transform t = spawnedClock.transform;
-                int alreadyX = Mathf.RoundToInt(spawnedClock.transform.position.x);
-                int alreadyZ = Mathf.RoundToInt(spawnedClock.transform.position.z);
-                float y = spawnedClock.transform.position.y;
-			    Destroy(spawnedClock);
-			    Instantiate(particlesController, t.position, t.rotation);
-			    timer.time += 15.0f;
-                clockStatus = false;
-            }
-	    }
-    }
-
-
-
-    private int GetAValueApartFrom(int min, int max,int avoid) {
-        int value = 0;
-        while(true) {
-            value = UnityEngine.Random.Range(min, max - 1);
-            if (value != avoid) break;
-        }
-        return value;
-    }
 
     private void rotate(string direction)
 	{

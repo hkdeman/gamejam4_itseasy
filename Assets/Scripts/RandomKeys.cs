@@ -123,7 +123,7 @@ public class RandomKeys : MonoBehaviour
 					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
 				} else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())          
 				{                                                                                   
-					   myMap.left();                                                                  
+					   myMap.left();                                          
 					   myTimer.DownBy(amount);                                                         
 					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
 				}                                                                                   
