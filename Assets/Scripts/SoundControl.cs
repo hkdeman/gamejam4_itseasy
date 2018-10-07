@@ -61,6 +61,7 @@ public class SoundControl : MonoBehaviour
 
     public bool isMax() { return audio.volume >= 1; }
     public bool isMin() { return audio.volume <= 0; }
+    public void stop() { audio.Stop(); }
 
     public void Decrescendo()
     {

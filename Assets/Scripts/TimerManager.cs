@@ -8,12 +8,15 @@ public class TimerManager : MonoBehaviour
     private AudioSource timerAudioSource;
     public AudioClip dieClip;
 
-	public Image Panel;
+	//public Image Panel;
 	public Image ButtonAgain;
 	public Image ButtonQuit;
+    public Image ButtonMenu;
+    public Image GameOverImage;
 	public Text textGameOver;
 	public Text textAgain;
 	public Text textQuit;
+    public Text textMenu;
     public float timeUp = 0.0f;
 
 	private bool hasLose = false;
@@ -67,14 +70,7 @@ public class TimerManager : MonoBehaviour
 
 	private void Lose()
 	{
-       
-		GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dead");
-		
-		Panel = Panel.GetComponent<Image>();
-		var tempColor = Panel.color;
-		tempColor.a += 0.15f * Time.deltaTime;
-		Panel.color = tempColor;
-		
+
 		ButtonAgain = ButtonAgain.GetComponent<Image>();
 		var tempColor1 = ButtonAgain.color;
 		tempColor1.a += 0.15f * Time.deltaTime;
@@ -84,6 +80,16 @@ public class TimerManager : MonoBehaviour
 		var tempColor2 = ButtonQuit.color;
 		tempColor2.a += 0.15f * Time.deltaTime;
 		ButtonQuit.color = tempColor2;
+
+        ButtonMenu = ButtonMenu.GetComponent<Image>();
+        var tempColor3 = ButtonMenu.color;
+        tempColor3.a += 0.15f * Time.deltaTime;
+        ButtonMenu.color = tempColor3;
+
+        GameOverImage = GameOverImage.GetComponent<Image>();
+        var tempColor4 = GameOverImage.color;
+        tempColor4.a += 0.30f * Time.deltaTime;
+        GameOverImage.color = tempColor4;
 		
 		if (!hasLose)
 		{
@@ -91,6 +97,7 @@ public class TimerManager : MonoBehaviour
             StartCoroutine(FadeTextToFullAlpha(1f, textGameOver));
 			StartCoroutine(FadeTextToFullAlpha(7f, textAgain));
 			StartCoroutine(FadeTextToFullAlpha(7f, textQuit));
+            StartCoroutine(FadeTextToFullAlpha(7f, textMenu));
 			hasLose = true;
 		}
 
