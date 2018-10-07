@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 
 public class Map : MonoBehaviour
@@ -30,7 +31,10 @@ public class Map : MonoBehaviour
     Vector3 clockPosition;
     Vector3 coinPosition;
 
-	// Use this for initialization
+    public int score = 0;
+    public Text text;
+
+    // Use this for initialization
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];

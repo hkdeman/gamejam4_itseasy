@@ -57,7 +57,8 @@ public class CoinRotator : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        map.score++;
+        map.text.text = map.score.ToString();
     }
 
     private int GetAValueApartFrom(int min, int max, int avoid)
