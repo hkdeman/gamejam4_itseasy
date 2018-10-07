@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundControl : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SoundControl : MonoBehaviour
     public float decMod; // value to control the decreasing volume
     float fadeTimer = 0f;
     public float creMod; // value to control the increasing volume
+    private GameObject timer;
 
     // Use this for initialization
     void Start()
@@ -33,12 +35,15 @@ public class SoundControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameObject.Find("Timer").GetComponent<TimerManager>().getRemainingTime() <= 40 && !intenseMode)
+        if (timer != null)
         {
-            audio.clip = hurryTFU;
-            audio.volume = 1.0f;
-            audio.Play();
-            intenseMode = !intenseMode;
+            if (timer.GetComponent<TimerManager>().getRemainingTime() <= 40 && !intenseMode) { 
+                Debug.Log("also here");
+                audio.clip = hurryTFU;
+                audio.volume = 1.0f;
+                audio.Play();
+                intenseMode = !intenseMode;
+            }
         }
     }
 
