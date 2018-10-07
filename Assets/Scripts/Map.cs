@@ -8,11 +8,10 @@ public class Map : MonoBehaviour
 
 
     public GameObject myCharacter;
-    public GameObject particlesController;
     public int SCALE = 2;
     public int ROWS = 3;
     public int COLS = 3;
-    public TimerManager timer;
+    public int xClockPos, zClockPos;
 
 	private GameObject[,] map;
     public int[] levelOneMap;
@@ -31,7 +30,7 @@ public class Map : MonoBehaviour
 	void Start()
 	{
 		map = new GameObject [ROWS, COLS];
-        clockPosition = new Position(0,3);
+        clockPosition = new Position(xClockPos, zClockPos);
         currentPosition = new Position(0, 0);
         createMap();
 		showMap();
@@ -208,10 +207,8 @@ public class Map : MonoBehaviour
 
     private void CheckIfClockThere() {
         if(clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z) {
-            Transform t = spawnedClock.transform;
             Destroy(spawnedClock);
-            Instantiate(particlesController, t.position, t.rotation);
-            timer.time += 15.0f;
+
         } 
     }
 
