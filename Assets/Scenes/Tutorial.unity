@@ -397,6 +397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGameObject: {fileID: 1177609817}
+  allowOrientationOne: 1
+  allowOrientationTwo: 1
+  allowOrientationThree: 1
+  allowOrientationFour: 0
 --- !u!4 &62510289
 Transform:
   m_ObjectHideFlags: 0
