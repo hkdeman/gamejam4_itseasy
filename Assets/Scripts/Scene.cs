@@ -22,6 +22,7 @@ public class Scene : MonoBehaviour {
 	void FixedUpdate () {
         if (shouldswitch && soundFade() && scene != -1)
         {
+            //gameObject.GetComponent<AudioSource>().Play();
             SceneManager.LoadScene(scene);
         } else if (!control.isMax() && isInc)
         {
@@ -50,6 +51,7 @@ public class Scene : MonoBehaviour {
 
     public void quickLoad(int scene)
     {
+        //gameObject.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(scene);
     }
 
