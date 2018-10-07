@@ -56,7 +56,7 @@ public class RandomKeys : MonoBehaviour
 	    
 	    
 		//   /!\ DEBUGGGGGGGGGG !!
-	    if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.W)) && TimerManager.GetTimerStatus())
+	    if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus())
         {
             myMap.up();
             myTimer.DownBy(amount);
@@ -66,7 +66,7 @@ public class RandomKeys : MonoBehaviour
             myMap.down();
             myTimer.DownBy(amount);
             GameObject.Find("Toast").GetComponent<Toast>().createToast();
-        } else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.A)) && TimerManager.GetTimerStatus())
+        } else if (Input.GetKeyDown(KeyCode.A) && TimerManager.GetTimerStatus())
         {
             myMap.left();
             myTimer.DownBy(amount);
