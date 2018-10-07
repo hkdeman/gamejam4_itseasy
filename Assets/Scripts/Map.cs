@@ -237,15 +237,29 @@ public class Map : MonoBehaviour
     private void CheckIfClockThere() {
 	    if (clockStatus)
 	    {
-		    if (clockPosition.x == currentPosition.x && clockPosition.z == currentPosition.z)
+            if ((Mathf.RoundToInt(clockPosition.x) == Mathf.RoundToInt(currentPosition.x)) && (Mathf.RoundToInt(clockPosition.z) == Mathf.RoundToInt(currentPosition.z)))
 		    {
 			    Transform t = spawnedClock.transform;
+                int alreadyX = Mathf.RoundToInt(spawnedClock.transform.position.x);
+                int alreadyZ = Mathf.RoundToInt(spawnedClock.transform.position.z);
+                float y = spawnedClock.transform.position.y;
 			    Destroy(spawnedClock);
 			    Instantiate(particlesController, t.position, t.rotation);
 			    timer.time += 15.0f;
-			    clockStatus = false;
-		    }
+                clockStatus = false;
+            }
 	    }
+    }
+
+
+
+    private int GetAValueApartFrom(int min, int max,int avoid) {
+        int value = 0;
+        while(true) {
+            value = UnityEngine.Random.Range(min, max - 1);
+            if (value != avoid) break;
+        }
+        return value;
     }
 
     private void rotate(string direction)
