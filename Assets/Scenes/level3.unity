@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4153295950751144, guid: f925c811657af85458ed34c3fd6d00c9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.48
+      value: 4.46
       objectReference: {fileID: 0}
     - target: {fileID: 4153295950751144, guid: f925c811657af85458ed34c3fd6d00c9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 108660022016302806, guid: f925c811657af85458ed34c3fd6d00c9,
         type: 2}
       propertyPath: m_Intensity
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 108660022016302806, guid: f925c811657af85458ed34c3fd6d00c9,
         type: 2}
@@ -3093,6 +3093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9d7aec4a5223a48a601115e643c1e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieClip: {fileID: 0}
   Panel: {fileID: 2130596048}
   ButtonAgain: {fileID: 901081064}
   ButtonQuit: {fileID: 14379487}
@@ -3322,7 +3323,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1533915299}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: -0.1, z: 5}
+  m_LocalPosition: {x: -9.32, y: -0.1, z: 5}
   m_LocalScale: {x: 2, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 375591231}
@@ -3803,11 +3804,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4721670503009626, guid: 3424ac4deeac4834aab1c83caf3f5f93, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.57
+      value: 5.33
       objectReference: {fileID: 0}
     - target: {fileID: 4721670503009626, guid: 3424ac4deeac4834aab1c83caf3f5f93, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.9
+      value: 8.18
       objectReference: {fileID: 0}
     - target: {fileID: 4721670503009626, guid: 3424ac4deeac4834aab1c83caf3f5f93, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3832,7 +3833,7 @@ Prefab:
     - target: {fileID: 108370041833190344, guid: 3424ac4deeac4834aab1c83caf3f5f93,
         type: 2}
       propertyPath: m_Intensity
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3424ac4deeac4834aab1c83caf3f5f93, type: 2}
@@ -4653,8 +4654,8 @@ MonoBehaviour:
   ROWS: 6
   COLS: 6
   timer: {fileID: 1261965269}
-  xClockPos: 3
-  zClockPos: 2
+  xClockPos: 2
+  zClockPos: 4
   currentLevel: 0
   WIN: {fileID: 0}
   LOSE: {fileID: 0}
@@ -4720,7 +4721,7 @@ Prefab:
     - target: {fileID: 108660022016302806, guid: f925c811657af85458ed34c3fd6d00c9,
         type: 2}
       propertyPath: m_Intensity
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 108660022016302806, guid: f925c811657af85458ed34c3fd6d00c9,
         type: 2}
