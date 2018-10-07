@@ -43,7 +43,32 @@ public class MainCameraRotator : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !rotating) {
+        if (map.currentLevel != 4)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) && !rotating) {
+                if((currentRotation == 0 && allowOrientationFour ) || 
+                   (currentRotation == 1 && allowOrientationOne) || 
+                   (currentRotation == 2 && allowOrientationTwo) || 
+                   (currentRotation == 3 && allowOrientationThree)) {
+                    currentRotation = currentRotation>0 ? (currentRotation-1) : 3;
+                    StartCoroutine(RotateMe(new Vector3(0, -90f, 0), 0.3f));
+                }
+            } else if (Input.GetKeyDown(KeyCode.E) && !rotating) {
+                if ((currentRotation == 0 && allowOrientationTwo) ||
+                    (currentRotation == 1 && allowOrientationThree) ||
+                    (currentRotation == 2 && allowOrientationFour) ||
+                    (currentRotation == 3 && allowOrientationOne))
+                {
+                    currentRotation = (currentRotation + 1) % 4;
+                    StartCoroutine(RotateMe(new Vector3(0, 90f, 0), 0.3f));
+                }
+            }
+        }
+    }
+
+    public void moveRotation(string key1, string key2)
+    {
+        if (Input.GetKeyDown(key1) && !rotating) {
             if((currentRotation == 0 && allowOrientationFour ) || 
                (currentRotation == 1 && allowOrientationOne) || 
                (currentRotation == 2 && allowOrientationTwo) || 
@@ -51,11 +76,11 @@ public class MainCameraRotator : MonoBehaviour {
                 currentRotation = currentRotation>0 ? (currentRotation-1) : 3;
                 StartCoroutine(RotateMe(new Vector3(0, -90f, 0), 0.3f));
             }
-        } else if (Input.GetKeyDown(KeyCode.Q) && !rotating) {
+        } else if (Input.GetKeyDown(key2) && !rotating) {
             if ((currentRotation == 0 && allowOrientationTwo) ||
-               (currentRotation == 1 && allowOrientationThree) ||
-               (currentRotation == 2 && allowOrientationFour) ||
-               (currentRotation == 3 && allowOrientationOne))
+                (currentRotation == 1 && allowOrientationThree) ||
+                (currentRotation == 2 && allowOrientationFour) ||
+                (currentRotation == 3 && allowOrientationOne))
             {
                 currentRotation = (currentRotation + 1) % 4;
                 StartCoroutine(RotateMe(new Vector3(0, 90f, 0), 0.3f));

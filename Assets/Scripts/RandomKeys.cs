@@ -146,10 +146,11 @@ public class RandomKeys : MonoBehaviour
 					myMap.right();                                       
 					myTimer.DownBy(amount);                              
 				}
-
-		       break;
-		       
-		       
+				else
+				{
+					GameObject.Find("MainCameraRotator").GetComponent<MainCameraRotator>().moveRotation(alpha[4], alpha[5]);
+				}
+		        break;        
 	    }
 	    	    
 	    
