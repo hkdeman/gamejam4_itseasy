@@ -6,6 +6,11 @@ public class SoundControl : MonoBehaviour
 {
 
     private new AudioSource audio;
+    public AudioClip regular;
+    public AudioClip hurryTFU;
+
+    private bool intenseMode = false;
+
     public float decMod; // value to control the decreasing volume
     float fadeTimer = 0f;
     public float creMod; // value to control the increasing volume
@@ -15,6 +20,7 @@ public class SoundControl : MonoBehaviour
     {
         audio = gameObject.GetComponent<AudioSource>();
         audio.volume = 0.05f;
+        audio.clip = regular;
         audio.Play();
         audio.loop = true;
     }
@@ -23,6 +29,17 @@ public class SoundControl : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        if (GameObject.Find("Timer").GetComponent<TimerManager>().getRemainingTime() <= 40 && !intenseMode)
+        {
+            audio.clip = hurryTFU;
+            audio.volume = 1.0f;
+            audio.Play();
+            intenseMode = !intenseMode;
+        }
     }
 
     public void Crescendo()

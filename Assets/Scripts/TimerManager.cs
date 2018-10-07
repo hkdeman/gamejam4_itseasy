@@ -45,6 +45,11 @@ public class TimerManager : MonoBehaviour
         return timeUp;
     }
 
+    public float getRemainingTime()
+    {
+        return time;
+    }
+
 	private void Lose()
 	{
 		Panel = Panel.GetComponent<Image>();
