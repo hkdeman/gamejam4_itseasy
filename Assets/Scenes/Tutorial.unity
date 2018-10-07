@@ -6103,7 +6103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdbdcc7f3106ef42932abccaffb8ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regular: {fileID: 8300000, guid: a0e8981cf95d2694fb4c39c0ab87a3f9, type: 3}
+  regular: {fileID: 8300000, guid: 1d056f7de9de2714abe64ef74f7ca247, type: 3}
   hurryTFU: {fileID: 8300000, guid: 3ac8624822609fb4d98c4e11c3a1c875, type: 3}
   decMod: 0.45
   creMod: 0.3

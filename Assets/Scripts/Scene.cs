@@ -22,6 +22,7 @@ public class Scene : MonoBehaviour {
 	void FixedUpdate () {
         if (shouldswitch && soundFade() && scene != -1)
         {
+            //gameObject.GetComponent<AudioSource>().Play();
             SceneManager.LoadScene(scene);
         } else if (!control.isMax() && isInc)
         {
@@ -44,6 +45,7 @@ public class Scene : MonoBehaviour {
 	public void loadScene(int scene)
 	{
 	    TimerManager.SetStatus(true);
+        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
         this.scene = scene;
         shouldswitch = true;
         isInc = false;
@@ -52,6 +54,7 @@ public class Scene : MonoBehaviour {
     public void quickLoad(int scene)
     {
         TimerManager.SetStatus(true);
+        GameObject.FindWithTag("Timer").GetComponent<TimerManager>().time = 180.0f;
         SceneManager.LoadScene(scene);
     }
 
