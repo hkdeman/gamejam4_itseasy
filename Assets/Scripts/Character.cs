@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    private new AudioSource characAudioSource;
+
     public static float RANGE = 0.25f;
     public static float RANGE_TO_SCALE_RATIO = 8;
     public static float STEPS;
@@ -17,6 +19,8 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        characAudioSource = GetComponent<AudioSource>();
+
         STEPS = RANGE / 5;
         SetIsJumping(false);
         animator = GetComponent<Animator>();
@@ -29,6 +33,8 @@ public class Character : MonoBehaviour
 			isJumping = true;
 			animator.Play("Jump");
 			Invoke("left", 0.4f);
+            
+
 		}
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Tile : MonoBehaviour
 {
 
+    private AudioSource tileSource;
+
     public Position position;
     public bool status;
     public Texture2D WIN, LOSE;
@@ -18,6 +20,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
+        tileSource = GetComponent<AudioSource>();
         m_Renderer = GetComponent<Renderer>();
         Map map = GameObject.FindWithTag("Map").GetComponent<Map>();
         if (map.currentLevel == 4) {
@@ -53,13 +56,17 @@ public class Tile : MonoBehaviour
 
 
     void OnCollisionEnter(Collision col)
-    {   
+    {
+
+        tileSource.Play();
+
         col.gameObject.transform.position = new Vector3(transform.position.x, col.gameObject.transform.position.y, transform.position.z);
         Character.isJumping = false;
         
         status = !status;
         UpdateTileColor();
         CallWinCodition();
+
     }
 
     private void CallWinCodition()
