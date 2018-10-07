@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Random : MonoBehaviour
+public class RandomWord : MonoBehaviour
 {
 	public Text play;
 //	public Text options;
