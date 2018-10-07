@@ -834,7 +834,7 @@ Transform:
   m_Children:
   - {fileID: 1526349086}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514164109
 GameObject:
@@ -3005,6 +3005,7 @@ MonoBehaviour:
   amount: 250
   map: {fileID: 2035319529}
   timer: {fileID: 1261965268}
+  CurrentLevel: 3
   viableButtons: qzsd
 --- !u!4 &1395376725
 Transform:

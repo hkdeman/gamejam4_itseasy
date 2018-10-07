@@ -81,6 +81,75 @@ public class RandomKeys : MonoBehaviour
 			       GameObject.Find("Toast").GetComponent<Toast>().createToast();                
 		       }
 		       break;
+	       case 2 :
+		       if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus())               
+		       {                                                                               
+			       myMap.down();                                                                 
+			       myTimer.DownBy(amount);                                                     
+			       GameObject.Find("Toast").GetComponent<Toast>().createToast();               
+		       } else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus())      
+		       {                                                                               
+			       myMap.up();                                                               
+			       myTimer.DownBy(amount);                                                     
+			       GameObject.Find("Toast").GetComponent<Toast>().createToast();               
+		       } else if (Input.GetKeyDown(KeyCode.A) && TimerManager.GetTimerStatus())        
+		       {                                                                               
+			       myMap.left();                                                               
+			       myTimer.DownBy(amount);                                                     
+			       GameObject.Find("Toast").GetComponent<Toast>().createToast();               
+		       } else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())      
+		       {                                                                               
+			       myMap.right();                                                              
+			       myTimer.DownBy(amount);                                                     
+			       GameObject.Find("Toast").GetComponent<Toast>().createToast();               
+		       }                                                                               
+		       break;
+	       
+	       case 3 :                                                                                
+				if (Input.GetKeyDown(KeyCode.W) && TimerManager.GetTimerStatus())                   
+				{                                                                                   
+					   myMap.down();                                                                   
+					   myTimer.DownBy(amount);                                                         
+					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
+				} else if ((Input.GetKeyDown(KeyCode.S)) && TimerManager.GetTimerStatus())          
+				{                                                                                   
+					   myMap.up();                                                                     
+					   myTimer.DownBy(amount);                                                         
+					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
+				} else if (Input.GetKeyDown(KeyCode.A) && TimerManager.GetTimerStatus())            
+				{                                                                                   
+					   myMap.right();                                                                   
+					   myTimer.DownBy(amount);                                                         
+					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
+				} else if ((Input.GetKeyDown(KeyCode.D)) && TimerManager.GetTimerStatus())          
+				{                                                                                   
+					   myMap.left();                                                                  
+					   myTimer.DownBy(amount);                                                         
+					   GameObject.Find("Toast").GetComponent<Toast>().createToast();                   
+				}                                                                                   
+				break;
+	       case 4:
+				if (Input.GetKeyDown(alpha[0]) && TimerManager.GetTimerStatus())
+				{                                                        
+					myMap.up();                                          
+					myTimer.DownBy(amount);                              
+				} else if (Input.GetKeyDown(alpha[1]) && TimerManager.GetTimerStatus())                   
+				{                                                        
+					myMap.down();                                        
+					myTimer.DownBy(amount);                              
+				} else if (Input.GetKeyDown(alpha[2]) && TimerManager.GetTimerStatus())                   
+				{                                                        
+					myMap.left();                                        
+					myTimer.DownBy(amount);                              
+				} else if (Input.GetKeyDown(alpha[3]) && TimerManager.GetTimerStatus())                   
+				{                                                        
+					myMap.right();                                       
+					myTimer.DownBy(amount);                              
+				}
+
+		       break;
+		       
+		       
 	    }
 	    	    
 	    
