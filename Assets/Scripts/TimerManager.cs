@@ -70,7 +70,7 @@ public class TimerManager : MonoBehaviour
 
 	private void Lose()
 	{
-
+		
 		ButtonAgain = ButtonAgain.GetComponent<Image>();
 		var tempColor1 = ButtonAgain.color;
 		tempColor1.a += 0.15f * Time.deltaTime;
@@ -99,6 +99,15 @@ public class TimerManager : MonoBehaviour
 			StartCoroutine(FadeTextToFullAlpha(7f, textQuit));
             StartCoroutine(FadeTextToFullAlpha(7f, textMenu));
 			hasLose = true;
+		}
+
+		if (GameObject.Find("Listener").GetComponent<RandomKeys>().CurrentLevel == 4)
+		{
+			GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dance");
+		}
+		else
+		{
+			GameObject.Find("MainCharacter").GetComponent<Animator>().Play("Dead");
 		}
 
 	}
